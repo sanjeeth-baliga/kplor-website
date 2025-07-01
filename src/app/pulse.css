@@ -1,0 +1,226 @@
+/* From Uiverse.io by Chris-immanuel-matthew */ 
+.loader {
+  width: 900px;
+  height: 900px;
+  min-width: 600px;
+  min-height: 600px;
+  max-width: 95vw;
+  max-height: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none; /* allow clicks to pass through except for button */
+  opacity: 0.45;
+  filter: blur(0.5px) brightness(1.2) saturate(1.2);
+  animation: pulse 2s infinite ease-in-out;
+  box-shadow: none;
+  background: none;
+}
+
+.ring {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  border: 16px solid transparent;
+  border-radius: 50%;
+  --color: #fe53bb;
+  border-bottom: 16px solid var(--color);
+  animation: rotate1 1s ease-in-out infinite;
+  box-shadow: 0 0 24px #8e8e8e44;
+}
+
+@keyframes rotate1 {
+  from {
+    transform: rotateX(50deg) rotateZ(110deg);
+  }
+  to {
+    transform: rotateX(50deg) rotateZ(470deg);
+  }
+}
+
+.ring:nth-child(2) {
+  --color: #8f51ea;
+  animation-name: rotate2;
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+  }
+  to {
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+  }
+}
+
+.ring:nth-child(3) {
+  --color: #0044ff;
+  animation-name: rotate3;
+}
+
+@keyframes rotate3 {
+  from {
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+  }
+  to {
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+  }
+}
+
+.ring:nth-child(4) {
+  --color: #fe53bb;
+  animation-name: rotate4;
+  width: 380px;
+  height: 380px;
+  border: 2px solid transparent;
+  border-bottom: 16px solid var(--color);
+}
+
+@keyframes rotate4 {
+  from {
+    transform: rotateX(50deg) rotateZ(470deg);
+  }
+  to {
+    transform: rotateX(50deg) rotateZ(110deg);
+  }
+}
+
+.ring:nth-child(5) {
+  --color: #8f51ea;
+  animation-name: rotate5;
+  width: 380px;
+  height: 380px;
+  border: 2px solid transparent;
+  border-bottom: 16px solid var(--color);
+}
+
+@keyframes rotate5 {
+  from {
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+  }
+  to {
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+  }
+}
+
+.ring:nth-child(6) {
+  --color: #0044ff;
+  animation-name: rotate6;
+  width: 380px;
+  height: 380px;
+  border: 2px solid transparent;
+  border-bottom: 16px solid var(--color);
+}
+
+@keyframes rotate6 {
+  from {
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+  }
+  to {
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+  }
+}
+
+/* Pulsing animation for nucleus */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow:
+      0 0 20px #fe53bb,
+      0 0 40px #8f51ea;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow:
+      0 0 30px #fe53bb,
+      0 0 60px #8f51ea;
+  }
+}
+
+.nucleus {
+  width: 260px;
+  height: 260px;
+  min-width: 180px;
+  min-height: 180px;
+  background: radial-gradient(circle, #fe53bb 60%, #8f51ea 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 1.2s ease-in-out infinite;
+  box-shadow: 0 0 80px 20px #fe53bb88, 0 0 120px 40px #8f51ea66;
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.pulse-btn {
+  z-index: 3;
+  pointer-events: auto;
+  animation: pulse-btn-glow 1.5s infinite alternate;
+  box-shadow: 0 0 60px 20px #1e40af, 0 0 120px 40px #3b82f6;
+  border: none;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+  color: #ffffff;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  font-family: 'Geist', 'Poppins', Arial, sans-serif;
+  font-style: italic;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  opacity: 1;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@keyframes pulse-btn-glow {
+  0% {
+    box-shadow: 0 0 20px #1e40af, 0 0 40px #3b82f6;
+  }
+  100% {
+    box-shadow: 0 0 40px #1e40af, 0 0 80px #3b82f6;
+  }
+}
+
+@media (max-width: 900px) {
+  .loader {
+    width: 90vw;
+    height: 90vw;
+    min-width: 300px;
+    min-height: 300px;
+    right: -10vw;
+  }
+  .nucleus {
+    width: 120px;
+    height: 120px;
+    min-width: 80px;
+    min-height: 80px;
+  }
+  .pulse-btn {
+    font-size: 1.4rem;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+  }
+}
