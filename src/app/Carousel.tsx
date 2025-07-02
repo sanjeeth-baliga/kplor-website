@@ -37,15 +37,15 @@ export default function Carousel() {
   }, [animate, scope]);
 
   return (
-    <div className="relative w-full overflow-hidden px-[5%]">
+    <div className="relative w-full overflow-hidden px-[5%] py-4">
       {/* Scroll Track */}
       <motion.div className="flex whitespace-nowrap items-center" ref={scope}>
         {[...universityLogos, ...universityLogos].map((logo, index) => (
           <div
             key={index}
-            className="flex items-center justify-center mx-6 min-w-[160px]"
+            className="flex items-center justify-center mx-4 min-w-[200px]"
           >
-            <div className="bg-white p-2 rounded-xl shadow-md h-20 w-36 flex items-center justify-center">
+            <div className="bg-white p-2 rounded-xl shadow-xl shadow-gray-500/50 h-44 w-60 flex items-center justify-center">
               <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain opacity-60" />
             </div>
           </div>

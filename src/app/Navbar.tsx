@@ -37,13 +37,13 @@ export default function Navbar() {
       {/* Logo */}
       <div className="text-lg font-bold">
         <Link href="/" className="flex items-center" onClick={closeMenu}>
-          <img src="/logo-removebg-preview.svg" alt="Kplor Logo" className="h-8 w-auto mr-2" /> {/* Replace with your actual logo file */}
+          <img src="/Kplor_logo.png" alt="Kplor Logo" className="h-12 w-auto mr-2" /> {/* Replace with your actual logo file */}
           Kplor
         </Link>
       </div>
 
       {/* Navigation Links */}
-      <div className="flex gap-8 text-base font-semibold relative"> {/* Added relative for dropdown positioning */}
+      <div className="flex items-center gap-8 text-lg font-semibold relative"> {/* Added relative for dropdown positioning */}
         {/* How it works link */}
         <Link href="/#features-section" onClick={closeMenu}>How it works</Link>
 
