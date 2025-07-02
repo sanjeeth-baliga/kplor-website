@@ -1,5 +1,5 @@
 // layout.tsx
-import type { Metadata } from "next";
+import type { Metadata } from "next"; // Changed next/font to next
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
@@ -32,10 +32,8 @@ export default function RootLayout({
         {/* Sticky Navbar */}
         <Navbar/>
 
-        <div className="min-h-screen" style={{
-            background: 'linear-gradient(135deg,rgb(40, 98, 173) 0%,rgb(9, 44, 91) 50%,rgb(2, 8, 15) 100%)', // Use the dark blue gradient
-            color: '#FFFFFF' // Set default text color to white
-        }}>
+        {/* Removed background from here. page.tsx will manage backgrounds. */}
+        <div className="min-h-screen rgb(115, 154, 204)"> {/* Set a default white background here */}
             {children}
         </div>
         </body>
