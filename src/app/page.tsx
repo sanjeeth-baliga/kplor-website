@@ -8,6 +8,7 @@ import { SaturnRings } from './saturn_rings';
 
 const animatedWords = ["see", "talk", "listen"];
 
+
 const features = [
     {
         title: "Personalize Your Learning Path",
@@ -66,6 +67,7 @@ const faqs = [
         answer: "Kplor's core AI is versatile, but specific subject content availability may vary. We are continuously expanding our subject offerings."
     },
 ];
+
 
 export default function Home() {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -151,6 +153,7 @@ export default function Home() {
                     Try Now!
                 </motion.a>
             </div>
+
 
             {/* Loved by Students At */}
             <div className="text-center text-xl text-white/90 mb-4">
@@ -241,6 +244,7 @@ function FAQItem({ question, answer }: { question: string, answer: string }) {
 
 
 function FeatureSection({feature, index}: { feature: any, index: number }) {
+
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true, amount: 0.2});  // Adjust 'amount' as needed
 
