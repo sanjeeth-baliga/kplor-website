@@ -5,67 +5,107 @@ import Carousel from "./Carousel";
 import './pulse.css';
 import { useState, useEffect, useRef } from 'react';
 import { SaturnRings } from './saturn_rings';
+import NeuronGridBackground from "./NeuronGridBackground";
 
-const animatedWords = ["see", "talk", "listen"];
+const animatedWords = ["watches", "listens", "teaches"];
 
+type Feature = {
+    title: string;
+    description: string;
+    image: string;
+    imagePlacement: "left" | "right";
+};
 
-const features = [
+const features: Feature[] = [
     {
-        title: "Personalize Your Learning Path",
-        description: "Create a custom learning path based on your proficiency, goals, and time constraint",
+        title: "Learn with a Tailored Learning Path",
+        description: "Get a study plan customized to your goals, strengths, and time. Clear direction, no clutter, no wasted effort",
         image: "/sample.svg",
         imagePlacement: "right", // "left" or "right"
     },
     {
-        title: "Talk to Kplor about everything",
-        description: "Have natural conversations with your AI tutor about any topic or question",
+        title: "Interact with a Dedicated Study Mate",
+        description: "Kplor doesn't just teach — it listens and interacts. Whether you need a slower pace, a confidence boost, or a moment to breathe, you're not alone",
         image: "/sample.svg",
         imagePlacement: "left",
     },
     {
-        title: "Understand Concepts with Immersive Lectures",
-        description: "Experience interactive video lectures that adapt to your learning style",
+        title: "So Engaging, You’ll Forget It’s Study Time",
+        description: "What if complex ideas turn into binge-worthy learning videos ? With vibrant visuals and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
         image: "/sample.svg",
         imagePlacement: "right",
     },
     {
-        title: "Smart Doubt Solving",
-        description: "Get instant, intelligent solutions to your questions with step-by-step explanations",
+        title: "Smart Nudges for Doubts and Assessment",
+        description: "Kplor guides, not dictates. It gives the right push to solve doubts and crack assessments, helping you think your way through",
         image: "/sample.svg",
         imagePlacement: "left",
     },
     {
-        title: "Proactive Check your Understanding",
-        description: "Regular assessments and quizzes to ensure you are mastering the concepts",
+        title: "Attention Is All You Need",
+        description: "No more cognitive overload from planning or pacing. Kplor does it for you. Just show up and learn",
         image: "/sample.svg",
         imagePlacement: "right",
     },
+    {
+        title: "Your Data. Your Space. No Exceptions",
+        description: "Kplor protects your privacy like a fortress. No raw visuals stored. No voice stored. No data shared",
+        image: "/sample.svg",
+        imagePlacement: "left",
+    }
+
 ];
 
 const neonBlue = '#00FFFF';
 
+type FAQ = {
+    question: string;
+    answer: string;
+};
+
 // Dummy FAQ data
-const faqs = [
+const faqs: FAQ[] = [
     {
-        question: "What is Kplor?",
-        answer: "Kplor is your personalized AI tutor designed to help you learn efficiently by adapting to your learning style, providing interactive content, and offering smart doubt-solving."
+        question: "Which subjects does it offer?",
+        answer: "The platform offers Engineering Mathematics right now, but will soon be available for other subjects as well."
     },
     {
-        question: "How does Kplor personalize my learning?",
-        answer: "Kplor creates a custom learning path based on your proficiency, goals, and time constraints, ensuring a tailored educational experience."
+        question: "Is it specific to any university students?",
+        answer: "Kplor is trained on all Top Indian universities curriculum; User can pick / choose relevant topics."
     },
     {
-        question: "Can I talk to Kplor like a human tutor?",
-        answer: "Yes, Kplor is designed for natural conversations. You can talk to your AI tutor about any topic or question you have."
+        question: "Is it free to use or paid?",
+        answer: "The beta version is free to use, but will eventually charge a nominal one time fee. Sign-up early for free credits."
     },
     {
-        question: "What kind of content does Kplor offer?",
-        answer: "Kplor provides immersive and interactive video lectures that adapt to your learning style, along with regular assessments and quizzes."
+        question: "Is my data stored and is it safe?",
+        answer: "Your raw facial and voice data won’t be stored. Kplor does not share data with third parties."
     },
     {
-        question: "Is Kplor suitable for all subjects?",
-        answer: "Kplor's core AI is versatile, but specific subject content availability may vary. We are continuously expanding our subject offerings."
+        question: "What devices and browsers are supported?",
+        answer: "Currently, you can run Kplor on any web browser from Desktop. We are building smartphones and tablets. Stayed tuned for the launch."
     },
+    {
+        question: "Is the AI watching me while using the platform?",
+        answer: "To ensure the best experience, Kplor will periodically watch you and gauge your emotions. But any raw data captured is immediately deleted."
+    },
+    {
+        question: "Can I turn off the camera?",
+        answer: "No, you cannot turn off the camera as it is required to ensure a distraction-free environment."
+    },
+    {
+        question: "Will it give proper conceptual explanations or just give answers?",
+        answer: "Kplor is the answer to all your learning requirements - whether it is understanding a concept, resolving a doubt, clearing out fundamentals or getting you exam ready."
+    },
+    {
+        question: "Can Kplor create a study schedule based on a deadline?",
+        answer: "Yes, it can. Just let it know where you are right now, where you want to get and how much time you have."
+    },
+    {
+        question: "I’m a professor. How can I get my students to use it?",
+        answer: "Just write to our founders at mukil@kplor.com and we will reach out to you."
+    }
+
 ];
 
 
@@ -81,141 +121,146 @@ export default function Home() {
     }, []);
 
     return (
-        <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12">
-            {/* Hero Section */}
-            <section className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl mx-auto">
-                {/* Title and One-Liner */}
-                <div className="md:w-7/12 p-8">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-4xl sm:text-6xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg"
-                    >
-                        Kplor: Your personalized AI tutor
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                        className="text-lg sm:text-2xl text-center md:text-left max-w-2xl text-white/90 mb-10"
-                    >
-                        Kplor can{" "}
-                        <motion.span
-                            key={currentWordIndex}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className="font-bold" // Style the animated word
+        <>
+            <NeuronGridBackground />
+            <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12">
+                {/* Hero Section */}
+                <section className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl mx-auto">
+                    {/* Title and One-Liner */}
+                    <div className="md:w-7/12 p-8">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="text-4xl sm:text-6xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg"
                         >
-                            {animatedWords[currentWordIndex]}
-                        </motion.span>{" "}
-                        and create adaptive video content
-                    </motion.p>
+                            Your Personal Tutor
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+                            className="text-lg sm:text-2xl text-center md:text-left max-w-2xl text-white/90 mb-10"
+                        >
+                            Built to be your study companion 24/7 that{" "}
+                            <motion.span
+                                key={currentWordIndex}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className="font-bold" // Style the animated word
+                            >
+                                {animatedWords[currentWordIndex]}
+                            </motion.span>{" "}
+                            - the way you need it
+                        </motion.p>
+                    </div>
+
+                    {/* Demo Video */}
+                    <div className="md:w-5/12 p-4 relative" style={{overflow:'hidden'}}>
+    {/* Saturn Rings Animation */}
+    <SaturnRings />
+    
+    {/* Circle Pulse Animation */}
+    <motion.div
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-cyan-500 opacity-30 z-0"
+        style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
+        animate={{ scale: [1, 2, 1] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+    />
+    <div className="relative z-10 w-full h-[250px]">
+        <iframe
+        src="https://www.youtube.com/embed/ibTHRYUtktE"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="w-full h-full rounded-xl"
+        ></iframe>
+    </div>
+    </div>
+                </section>
+
+                {/* Try Now Button */}
+                <div className="flex justify-center mt-8 mb-12">
+                    <motion.a
+                        href="https://live.kplor.kplor.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                        className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200"
+                        style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                    >
+                        Start Learning for Free
+                    </motion.a>
                 </div>
 
-                {/* Demo Video */}
-                <div className="md:w-5/12 p-4 relative" style={{overflow:'hidden'}}>
-  {/* Saturn Rings Animation */}
-  <SaturnRings />
-  
-  {/* Circle Pulse Animation */}
-  <motion.div
-    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-cyan-500 opacity-30 z-0"
-    style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
-    animate={{ scale: [1, 2, 1] }}
-    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-  />
-  <div className="relative z-10 w-full h-[250px]">
-    <iframe
-      src="https://www.youtube.com/embed/ibTHRYUtktE"
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
-      className="w-full h-full rounded-xl"
-    ></iframe>
-  </div>
-</div>
-            </section>
 
-            {/* Try Now Button */}
-            <div className="flex justify-center mt-8 mb-12">
-                <motion.a
-                    href="https://live.kplor.kplor.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                    className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200"
-                    style={{boxShadow: `0 0 8px ${neonBlue}`}}
-                >
-                    Try Now!
-                </motion.a>
-            </div>
-
-
-            {/* Loved by Students At */}
-            <div className="text-center text-xl text-white/90 mb-4">
-                Loved by students at
-            </div>
-
-            {/* Universities Carousel */}
-            <section className="w-full mb-16">
-                <Carousel/>
-            </section>
-            <div className="text-center text-4xl font-bold text-white drop-shadow-lg mb-8">
-                Features
-            </div>
-
-            {/* Feature Sections */}
-            {features.map((feature, index) => (
-                <FeatureSection
-                    key={index}
-                    feature={feature}
-                    index={index}
-                />
-            ))}
-
-            {/* FAQ Section */}
-            <section className="w-full max-w-4xl mx-auto my-16 px-4">
-                <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg mb-12">
-                    Frequently Asked Questions
-                </h2>
-                <div className="space-y-6">
-                    {faqs.map((faq, index) => (
-                        <FAQItem key={index} question={faq.question} answer={faq.answer} />
-                    ))}
+                {/* Loved by Students At */}
+                <div className="text-center text-xl text-white/90 mb-4">
+                    Loved by students at
                 </div>
-            </section>
 
-            {/* Final Call to Action */}
-            <section className="w-full text-center py-16">
-                <h2 className="text-5xl sm:text-6xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight">
-                    Ready to revolutionize your learning?
-                </h2>
-                <motion.a
-                    href="https://live.kplor.kplor.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                    className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
-                    style={{boxShadow: `0 0 8px ${neonBlue}`}}
-                >
-                    Start Learning with Kplor Now!
-                </motion.a>
-            </section>
+                {/* Universities Carousel */}
+                <section className="w-full mb-16">
+                    <Carousel/>
+                </section>
+                <div className="text-center text-4xl font-bold text-white drop-shadow-lg mb-8">
+                    Why You&apos;ll Love Learning with Kplor
+                </div>
 
-        </main>
+                {/* Feature Sections */}
+                {features.map((feature, index) => (
+                    <FeatureSection
+                        key={index}
+                        feature={feature}
+                    />
+                ))}
+
+                {/* FAQ Section */}
+                <section className="w-full max-w-4xl mx-auto my-16 px-4">
+                    <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg mb-12">
+                        Frequently Asked Questions
+                    </h2>
+                    <div className="space-y-6">
+                        {faqs.map((faq, index) => (
+                            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+                        ))}
+                    </div>
+                </section>
+
+                {/* Final Call to Action */}
+                <section className="w-full text-center py-16">
+                    <h2 className="text-5xl sm:text-6xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight">
+                        Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
+                    </h2>
+                    <motion.a
+                        href="https://live.kplor.kplor.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                        className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
+                        style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                    >
+                        Start Learning with Kplor Now!
+                    </motion.a>
+                </section>
+
+            </main>
+        </>
     );
 }
 
 // Separate component for FAQ Item
-function FAQItem({ question, answer }: { question: string, answer: string }) {
+function FAQItem({ question, answer }: FAQ) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="bg-white/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+        <div
+            className="backdrop-blur-sm bg-white/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out"
+            style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }}
+        >
             <button
                 className="w-full flex justify-between items-center p-6 text-left text-lg font-semibold text-white cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
@@ -243,17 +288,18 @@ function FAQItem({ question, answer }: { question: string, answer: string }) {
 }
 
 
-function FeatureSection({feature, index}: { feature: any, index: number }) {
+function FeatureSection({ feature }: { feature: Feature }) {
 
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true, amount: 0.2});  // Adjust 'amount' as needed
 
     const direction = feature.imagePlacement === "left" ? -1 : 1;
     const animationVariants = {
-        hidden: {opacity: 0, x: 80 * direction},
+        hidden: {opacity: 0, x: 80 * direction, backgroundColor: 'rgba(3, 40, 89, 0.95)'},
         visible: {
             opacity: 1,
             x: 0,
+            backgroundColor: 'rgba(3, 40, 89, 0.95)',
             transition: {
                 duration: 0.9,
                 ease: 'easeOut',
@@ -271,8 +317,8 @@ function FeatureSection({feature, index}: { feature: any, index: number }) {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={animationVariants}
-            className={`w-full flex flex-col md:flex-row items-center justify-center gap-10 rounded-2xl px-6 py-10 max-w-5xl mx-auto mb-16 ${isHighlighted ? 'shadow-xl' : 'shadow-md'}`}
-            style={{minHeight: '320px', backgroundColor: 'rgba(3, 40, 89, 0.65)'}}  // Dimmed blue shade
+            className={`backdrop-blur-sm w-full flex flex-col md:flex-row items-center justify-center gap-10 rounded-2xl px-6 py-10 max-w-5xl mx-auto mb-16 ${isHighlighted ? 'shadow-xl' : 'shadow-md'}`}
+            style={{minHeight: '320px'}}
         >
             {/* Image */}
             {feature.imagePlacement === "left" && (
@@ -313,15 +359,3 @@ function FeatureSection({feature, index}: { feature: any, index: number }) {
         </motion.section>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
