@@ -7,7 +7,14 @@ import { useState, useEffect, useRef } from 'react';
 
 const animatedWords = ["see", "talk", "listen"];
 
-const features = [
+interface Feature {
+  title: string;
+  description: string;
+  image: string;
+  imagePlacement: "left" | "right";
+}
+
+const features: Feature[] = [
   {
     title: "Personalize Your Learning Path",
     description: "Create a custom learning path based on your proficiency, goals, and time constraint",
@@ -39,7 +46,7 @@ const features = [
     imagePlacement: "right",
   },
 ];
-const neonBlue = '#00FFFF'
+//const neonBlue = '#00FFFF'
 
 export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -137,14 +144,13 @@ export default function Home() {
         <FeatureSection
           key={index}
           feature={feature}
-          index={index}
         />
       ))}
     </main>
   );
 }
 
-function FeatureSection({ feature, index }: { feature: any, index: number }) {
+function FeatureSection({ feature }: { feature: Feature }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });  // Adjust 'amount' as needed
   

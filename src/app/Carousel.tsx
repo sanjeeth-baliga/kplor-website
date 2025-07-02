@@ -11,7 +11,7 @@ const universities = [
 ];
 
 export default function Carousel() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
