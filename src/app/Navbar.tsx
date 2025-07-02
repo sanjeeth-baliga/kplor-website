@@ -26,7 +26,7 @@ const neonBlue = '#00FFFF'
       <div className="text-lg font-bold">
         <Link href="/" className="flex items-center">
           <img src="/logo-removebg-preview.svg" alt="Kplor Logo" className="h-8 w-auto mr-2" /> {/* Replace with your actual logo file */}
-          Kplor Logo
+          Kplor
         </Link>
       </div>
 
