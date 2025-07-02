@@ -42,7 +42,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-4xl sm:text-6xl font-extrabold text-center text-white mb-16 drop-shadow-lg"
+                className="text-4xl sm:text-6xl font-extrabold text-center text-black mb-16 drop-shadow-lg"
             >
                 Meet Our Team
             </motion.h1>
@@ -97,7 +97,7 @@ export default function AboutPage() {
 
             {/* Join Us Button */}
             <section className="w-full text-center py-8">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-8 drop-shadow-lg">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-blue mb-8 drop-shadow-lg">
                     Want to join our mission?
                 </h2>
                 <motion.a

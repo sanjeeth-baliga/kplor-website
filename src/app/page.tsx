@@ -1,3 +1,4 @@
+
 // page.tsx
 "use client";
 import { motion, useInView } from "framer-motion";
@@ -5,7 +6,7 @@ import Carousel from "./Carousel";
 import './pulse.css';
 import { useState, useEffect, useRef } from 'react';
 import { SaturnRings } from './saturn_rings';
-import NeuronGridBackground from "./NeuronGridBackground";
+// Removed: import NeuronGridBackground from "./NeuronGridBackground";
 
 const animatedWords = ["watches", "listens", "teaches"];
 
@@ -122,17 +123,25 @@ export default function Home() {
 
     return (
         <>
-            <NeuronGridBackground />
-            <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12">
-                {/* Hero Section */}
-                <section className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl mx-auto">
+            {/* Removed NeuronGridBackground component here */}
+            {/* Hero Section with Gradient Background */}
+            <section
+                className="relative w-full overflow-hidden px-4 pt-12 min-h-[80vh] flex flex-col items-center justify-start"
+                style={{
+                    // Changed gradient to be more gradual and include a light blue tint
+                    background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)',
+                    color: '#032859' // Changed text color to dark blue for better visibility as background lightens
+                }}
+            >
+                {/* Content of the Hero Section */}
+                <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl mx-auto z-10"> {/* Add z-10 to bring content above background */}
                     {/* Title and One-Liner */}
                     <div className="md:w-7/12 p-8">
                         <motion.h1
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-4xl sm:text-6xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg"
+                            className="text-4xl sm:text-6xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg text-white"
                         >
                             Your Personal Tutor
                         </motion.h1>
@@ -140,9 +149,9 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                            className="text-lg sm:text-2xl text-center md:text-left max-w-2xl text-white/90 mb-10"
+                            className="text-lg sm:text-2xl text-center md:text-left max-w-2xl mb-10 text-white" // Removed text-white/90
                         >
-                            Built to be your study companion 24/7 that{" "}
+                            Built to be your study companion sthat{" "}
                             <motion.span
                                 key={currentWordIndex}
                                 initial={{ opacity: 0 }}
@@ -159,55 +168,58 @@ export default function Home() {
 
                     {/* Demo Video */}
                     <div className="md:w-5/12 p-4 relative" style={{overflow:'hidden'}}>
-    {/* Saturn Rings Animation */}
-    <SaturnRings />
-    
-    {/* Circle Pulse Animation */}
-    <motion.div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-cyan-500 opacity-30 z-0"
-        style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
-        animate={{ scale: [1, 2, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <div className="relative z-10 w-full h-[250px]">
-        <iframe
-        src="https://www.youtube.com/embed/ibTHRYUtktE"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="w-full h-full rounded-xl"
-        ></iframe>
-    </div>
-    </div>
-                </section>
+                        {/* Saturn Rings Animation */}
+                        <SaturnRings />
+                        
+                        {/* Circle Pulse Animation */}
+                        <motion.div
+                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-cyan-500 opacity-30 z-0"
+                            style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
+                            animate={{ scale: [1, 2, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                        <div className="relative z-10 w-full h-[250px]">
+                            <iframe
+                            src="https://www.youtube.com/embed/ibTHRYUtktE"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="w-full h-full rounded-xl"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
 
-                {/* Try Now Button */}
-                <div className="flex justify-center mt-8 mb-12">
+                {/* Try Now Button (part of Hero Section) */}
+                <div className="flex justify-center mt-8 mb-12 z-10"> {/* Add z-10 */}
                     <motion.a
                         href="https://live.kplor.kplor.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                        className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200"
+                        className=" bg-[#00FFFF] text-[#032859] font-bold py-6 px-12 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-2xl"
                         style={{boxShadow: `0 0 8px ${neonBlue}`}}
                     >
                         Start Learning for Free
                     </motion.a>
                 </div>
+            </section>
 
+            {/* Main Content Area (White Background) */}
+            <main className="flex flex-col items-center justify-start w-full bg-white text-black py-16"> {/* Set background to white and text to black */}
 
                 {/* Loved by Students At */}
-                <div className="text-center text-xl text-white/90 mb-4">
+                <div className="text-center text-2xl text-gray-700 mb-4"> {/* Adjusted text color for white background */}
                     Loved by students at
                 </div>
 
-                {/* Universities Carousel */}
-                <section className="w-full mb-16">
+                {/* Universities Carousel - Adjusted to match feature card width */}
+                <section className="w-full max-w-5xl mx-auto mb-16">
                     <Carousel/>
                 </section>
-                <div className="text-center text-4xl font-bold text-white drop-shadow-lg mb-8">
-                    Why You&apos;ll Love Learning with Kplor
+                <div id="features-section" className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-8"> {/* Adjusted text color */}
+                    Why You'll Love Learning with Kplor
                 </div>
 
                 {/* Feature Sections */}
@@ -220,7 +232,7 @@ export default function Home() {
 
                 {/* FAQ Section */}
                 <section className="w-full max-w-4xl mx-auto my-16 px-4">
-                    <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg mb-12">
+                    <h2 className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12"> {/* Adjusted text color */}
                         Frequently Asked Questions
                     </h2>
                     <div className="space-y-6">
@@ -230,21 +242,23 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Final Call to Action */}
+                {/* Final Call to Action - Now in a light blue container */}
                 <section className="w-full text-center py-16">
-                    <h2 className="text-5xl sm:text-6xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight">
-                        Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
-                    </h2>
-                    <motion.a
-                        href="https://live.kplor.kplor.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                        className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
-                        style={{boxShadow: `0 0 8px ${neonBlue}`}}
-                    >
-                        Start Learning with Kplor Now!
-                    </motion.a>
+                    <div className="bg-blue-50 p-8 rounded-xl max-w-4xl mx-auto"> {/* New container with light blue background */}
+                        <h2 className="text-5xl sm:text-6xl font-extrabold text-gray-800 mb-12 drop-shadow-lg leading-tight"> {/* Changed text color to dark */}
+                            Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
+                        </h2>
+                        <motion.a
+                            href="https://live.kplor.kplor.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                            className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
+                            style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                        >
+                            Start Learning with Kplor Now!
+                        </motion.a>
+                    </div>
                 </section>
 
             </main>
@@ -259,7 +273,7 @@ function FAQItem({ question, answer }: FAQ) {
     return (
         <div
             className="backdrop-blur-sm bg-white/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }}
+            style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }} // Keep this as it's for the FAQ item itself
         >
             <button
                 className="w-full flex justify-between items-center p-6 text-left text-lg font-semibold text-white cursor-pointer"
@@ -272,7 +286,7 @@ function FAQItem({ question, answer }: FAQ) {
                     transition={{ duration: 0.3 }}
                     className="ml-4 text-2xl"
                 >
-                    &#9660; {/* Unicode for a down arrow */}
+                    ▼ {/* Unicode for a down arrow */}
                 </motion.span>
             </button>
             <motion.div
