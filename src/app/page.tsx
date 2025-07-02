@@ -1,4 +1,3 @@
-
 // page.tsx
 "use client";
 import { motion, useInView } from "framer-motion";
@@ -31,7 +30,7 @@ const features: Feature[] = [
         imagePlacement: "left",
     },
     {
-        title: "So Engaging, You’ll Forget It’s Study Time",
+        title: "So Engaging, You'll Forget It's Study Time",
         description: "What if complex ideas turn into binge-worthy learning videos ? With vibrant visuals and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
         image: "/sample.svg",
         imagePlacement: "right",
@@ -80,7 +79,7 @@ const faqs: FAQ[] = [
     },
     {
         question: "Is my data stored and is it safe?",
-        answer: "Your raw facial and voice data won’t be stored. Kplor does not share data with third parties."
+        answer: "Your raw facial and voice data won't be stored. Kplor does not share data with third parties."
     },
     {
         question: "What devices and browsers are supported?",
@@ -103,7 +102,7 @@ const faqs: FAQ[] = [
         answer: "Yes, it can. Just let it know where you are right now, where you want to get and how much time you have."
     },
     {
-        question: "I’m a professor. How can I get my students to use it?",
+        question: "I'm a professor. How can I get my students to use it?",
         answer: "Just write to our founders at mukil@kplor.com and we will reach out to you."
     }
 
@@ -134,14 +133,14 @@ export default function Home() {
                 }}
             >
                 {/* Content of the Hero Section */}
-                <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl mx-auto z-10"> {/* Add z-10 to bring content above background */}
+                <div className="flex flex-col md:flex-row items-start justify-center w-full max-w-7xl mx-auto z-10"> {/* Changed items-center to items-start for alignment */}
                     {/* Title and One-Liner */}
-                    <div className="md:w-7/12 p-8">
+                    <div className="md:w-6/12 p-8 flex flex-col justify-start">
                         <motion.h1
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-4xl sm:text-6xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg text-white"
+                            className="text-6xl sm:text-8xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg text-white"
                         >
                             Your Personal Tutor
                         </motion.h1>
@@ -151,14 +150,14 @@ export default function Home() {
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                             className="text-lg sm:text-2xl text-center md:text-left max-w-2xl mb-10 text-white" // Removed text-white/90
                         >
-                            Built to be your study companion sthat{" "}
+                            Built to be your study companion that{" "}
                             <motion.span
                                 key={currentWordIndex}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="font-bold" // Style the animated word
+                                className="font-bold"
                             >
                                 {animatedWords[currentWordIndex]}
                             </motion.span>{" "}
@@ -167,32 +166,31 @@ export default function Home() {
                     </div>
 
                     {/* Demo Video */}
-                    <div className="md:w-5/12 p-4 relative" style={{overflow:'hidden'}}>
+                    <div className="md:w-6/12 p-4 relative flex flex-col items-center justify-start" style={{overflow:'visible', minHeight: '600px'}}> {/* Increased minHeight and overflow */}
                         {/* Saturn Rings Animation */}
                         <SaturnRings />
-                        
                         {/* Circle Pulse Animation */}
                         <motion.div
-                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-cyan-500 opacity-30 z-0"
+                            className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-80 h-80 rounded-full bg-cyan-500 opacity-30 z-0" // Increased w/h to 80 (320px)
                             style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
                             animate={{ scale: [1, 2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                         />
-                        <div className="relative z-10 w-full h-[250px]">
+                        <div className="relative z-10 w-[630px] h-[360px] max-w-full" style={{marginTop: 0}}> {/* Larger video, responsive */}
                             <iframe
                             src="https://www.youtube.com/embed/ibTHRYUtktE"
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
-                            className="w-full h-full rounded-xl"
+                            className="w-full h-full rounded-2xl shadow-2xl border-4 border-white/30"
                             ></iframe>
                         </div>
                     </div>
                 </div>
 
                 {/* Try Now Button (part of Hero Section) */}
-                <div className="flex justify-center mt-8 mb-12 z-10"> {/* Add z-10 */}
+                <div className="flex justify-center mt-0 mb-10 z-10"> {/* Reduced top margin to move button up */}
                     <motion.a
                         href="https://live.kplor.kplor.com"
                         target="_blank"
@@ -210,16 +208,16 @@ export default function Home() {
             <main className="flex flex-col items-center justify-start w-full bg-white text-black py-16"> {/* Set background to white and text to black */}
 
                 {/* Loved by Students At */}
-                <div className="text-center text-2xl text-gray-700 mb-4"> {/* Adjusted text color for white background */}
+                <div className="text-center text-4xl font-extrabold text-gray-900 mb-4 tracking-tight drop-shadow-lg"> {/* Bolder, darker, modern */}
                     Loved by students at
                 </div>
 
                 {/* Universities Carousel - Adjusted to match feature card width */}
-                <section className="w-full max-w-5xl mx-auto mb-16">
+                <section className="w-full max-w-5xl mx-auto mb-24">
                     <Carousel/>
                 </section>
-                <div id="features-section" className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-8"> {/* Adjusted text color */}
-                    Why You'll Love Learning with Kplor
+                <div id="features-section" className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12"> {/* Adjusted text color */}
+                    Why You&apos;ll Love Learning with Kplor
                 </div>
 
                 {/* Feature Sections */}
@@ -244,8 +242,8 @@ export default function Home() {
 
                 {/* Final Call to Action - Now in a light blue container */}
                 <section className="w-full text-center py-16">
-                    <div className="bg-blue-50 p-8 rounded-xl max-w-4xl mx-auto"> {/* New container with light blue background */}
-                        <h2 className="text-5xl sm:text-6xl font-extrabold text-gray-800 mb-12 drop-shadow-lg leading-tight"> {/* Changed text color to dark */}
+                    <div className="bg-[#032859] p-8 rounded-xl max-w-4xl mx-auto"> {/* New container with dark blue background */}
+                        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"> {/* Changed text color to white and reduced size */}
                             Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
                         </h2>
                         <motion.a
