@@ -33,7 +33,7 @@ export default function RootLayout({
         <Navbar/>
 
         <div className="min-h-screen" style={{
-            background: 'linear-gradient(135deg,rgb(40, 98, 173) 0%, #032859 50%, #032859 100%)', // Use the dark blue gradient
+            background: 'linear-gradient(135deg,rgb(40, 98, 173) 0%,rgb(9, 44, 91) 50%,rgb(2, 8, 15) 100%)', // Use the dark blue gradient
             color: '#FFFFFF' // Set default text color to white
         }}>
             {children}

@@ -40,3 +40,23 @@ body {
 }
 
 /* Removed nav, .luminated-bg styles */
+/* Custom Carousel Styles */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carousel-inner {
+  display: flex;
+}
+
+.item {
+  width: 200px;
+  height: 100px;
+  min-width: 200px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

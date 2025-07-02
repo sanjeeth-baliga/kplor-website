@@ -3,52 +3,60 @@
 import { useRef, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
-const universities = [
-  "Mumbai University",
-  "VTU",
-  "IIT Bombay",
-  "IIM Kozhikode",
+const universityLogos = [
+  { src: "/IIM_Indore_Logo.svg", alt: "IIM I" },
+  { src: "/iim_Koz.svg", alt: "IIM K" },
+  { src: "/IIT_ROPAR.svg", alt: "IIT ROPAR" },
+  { src: "/nita.svg", alt: "MNIT A" },
+  { src: "/nitk.svg", alt: "NIT K" },
 ];
 
 export default function Carousel() {
-  const containerRef = useRef(null);
+  const trackRef = useRef(null);
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const animateCarousel = async () => {
+      if (!trackRef.current) return;
+      const totalWidth = trackRef.current.scrollWidth / 2;
 
-    const containerWidth = containerRef.current.offsetWidth;
-    const contentWidth = universities.length * 200; // Adjust 200 based on actual width
-    const animationDuration = 10; // Increased speed (seconds)
+      await animate(
+        scope.current,
+        { x: [`-${totalWidth}px`, `0px`] }, // Left ➡️ Right animation
+        {
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear",
+        }
+      );
+    };
 
-    animate(
-      scope.current,
-      { x: [0, -contentWidth + containerWidth] },
-      {
-        duration: animationDuration,
-        repeat: Infinity,
-        ease: "linear",
-      }
-    );
-  }, []);
+    animateCarousel();
+  }, [animate]);
 
   return (
-    <div className="relative w-full overflow-hidden" ref={scope}>
-      <div className="flex whitespace-nowrap" ref={containerRef}>
-        {universities.map((university, index) => (
-          <motion.div
+    // Changed overflow-hidden to overflow-visible to allow content to flow out
+    // and adjusted padding to px-[5%] to ensure some space at ends
+    <div className="relative w-full overflow-visible px-[5%]" ref={scope}>
+      {/* Scroll Track */}
+      <motion.div className="flex whitespace-nowrap items-center" ref={trackRef}>
+        {[...universityLogos, ...universityLogos].map((logo, index) => (
+          <div
             key={index}
-            className="flex items-center justify-center min-w-[200px] px-6 py-2 text-lg font-semibold text-white drop-shadow-lg"
-            style={{
-              background: `linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0.3) 90%, rgba(0,0,0,0) 100%)`,
-            }}
+            className="flex items-center justify-center mx-6 min-w-[160px]"
           >
-            {university}
-          </motion.div>
+            <div className="bg-white p-2 rounded-xl shadow-md h-20 w-36 flex items-center justify-center">
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-full max-w-full object-contain opacity-60"
+              />
+            </div>
+          </div>
         ))}
-      </div>
-      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent"></div>
-      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent"></div>
+      </motion.div>
+
+      {/* Removed Left & Right Fade elements */}
     </div>
   );
 }
