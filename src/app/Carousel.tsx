@@ -1,6 +1,6 @@
 // Carousel.tsx
 "use client";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
 const universityLogos = [
@@ -12,17 +12,19 @@ const universityLogos = [
 ];
 
 export default function Carousel() {
-  const trackRef = useRef(null);
-  const [scope, animate] = useAnimate();
+  const [scope, animate] = useAnimate<HTMLDivElement>();
 
   useEffect(() => {
     const animateCarousel = async () => {
-      if (!trackRef.current) return;
-      const totalWidth = trackRef.current.scrollWidth / 2;
+      const track = scope.current;
+      if (!track) return;
+
+      // The track is duplicated, so we move it by half its width for a seamless loop
+      const totalWidth = track.scrollWidth / 2;
 
       await animate(
-        scope.current,
-        { x: [`-${totalWidth}px`, `0px`] }, // Left ➡️ Right animation
+        track,
+        { x: [`-${totalWidth}px`, "0px"] },
         {
           duration: 20,
           repeat: Infinity,
@@ -32,31 +34,23 @@ export default function Carousel() {
     };
 
     animateCarousel();
-  }, [animate]);
+  }, [animate, scope]);
 
   return (
-    // Changed overflow-hidden to overflow-visible to allow content to flow out
-    // and adjusted padding to px-[5%] to ensure some space at ends
-    <div className="relative w-full overflow-visible px-[5%]" ref={scope}>
+    <div className="relative w-full overflow-hidden px-[5%]">
       {/* Scroll Track */}
-      <motion.div className="flex whitespace-nowrap items-center" ref={trackRef}>
+      <motion.div className="flex whitespace-nowrap items-center" ref={scope}>
         {[...universityLogos, ...universityLogos].map((logo, index) => (
           <div
             key={index}
             className="flex items-center justify-center mx-6 min-w-[160px]"
           >
             <div className="bg-white p-2 rounded-xl shadow-md h-20 w-36 flex items-center justify-center">
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="max-h-full max-w-full object-contain opacity-60"
-              />
+              <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain opacity-60" />
             </div>
           </div>
         ))}
       </motion.div>
-
-      {/* Removed Left & Right Fade elements */}
     </div>
   );
 }
