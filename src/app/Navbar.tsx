@@ -31,7 +31,7 @@ export default function Navbar() {
       className={`sticky top-0 z-50 flex justify-between items-center px-8 py-4 transition-all duration-300 ${scrolled ? 'bg-[#032859]/90 shadow-xl' : 'bg-[#032859]/50 shadow-none'} text-white`}
       style={{
         backgroundColor: '#032859',
-        fontFamily: 'ui-serif, Georgia, serif' // Explicitly apply the Geist Sans font
+        fontFamily: 'Helvetica, Arial, sans-serif' // Use Helvetica with common fallbacks
       }}
     >
       {/* Logo */}
