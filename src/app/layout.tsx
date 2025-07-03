@@ -3,7 +3,7 @@ import type { Metadata } from "next"; // Changed next/font to next
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
-
+import Footer from "./footer";
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -36,6 +36,7 @@ export default function RootLayout({
         <div className="min-h-screen rgb(115, 154, 204)"> {/* Set a default white background here */}
             {children}
         </div>
+        <Footer />
         </body>
         </html>
     );
