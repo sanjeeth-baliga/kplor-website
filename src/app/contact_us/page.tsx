@@ -95,7 +95,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="w-full max-w-md sm:max-w-lg md:max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-8 shadow-2xl"
+          className="w-full max-w-md sm:max-w-lg md:max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-8 shadow-2xl px-2 sm:px-4"
           style={{ minHeight: '320px', backgroundColor:'rgba(3, 40, 89, 0.65)'}}
         >
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">

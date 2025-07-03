@@ -168,17 +168,8 @@ export default function Home() {
                         </div>
 
                         {/* Demo Video */}
-                        <div className="md:w-6/12 p-2 sm:p-4 relative flex flex-col items-center justify-start" style={{overflow:'visible', minHeight: '320px'}}> {/* Removed minHeight */}
-                            {/* Saturn Rings Animation */}
-                            {/*<SaturnRings />*/}
-                            {/* Circle Pulse Animation */}
-                            {/*<motion.div
-                                className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-80 h-80 rounded-full bg-cyan-500 opacity-30 z-0" // Increased w/h to 80 (320px)
-                                style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
-                                animate={{ scale: [1, 2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            />*/}
-                            <div className="relative z-10 w-full max-w-[630px] h-[180px] sm:h-[260px] md:h-[360px]" style={{marginTop: 0}}> {/* Larger video, responsive */}
+                        <div className="md:w-6/12 p-2 sm:p-4 flex flex-col items-center justify-center w-full" style={{overflow:'visible', minHeight: '320px'}}>
+                            <div className="relative z-10 w-full max-w-[630px] h-[180px] sm:h-[260px] md:h-[360px] mx-auto" style={{marginTop: 0}}>
                                 <iframe
                                 src="https://www.youtube.com/embed/ibTHRYUtktE"
                                 title="YouTube video player"
@@ -192,7 +183,7 @@ export default function Home() {
                     </div>
 
                     {/* Try Now Button (part of Hero Section) */}
-                    <div className="flex flex-col items-center mt-8 mb-20 z-10"> {/* Changed to flex-col and added items-center */}
+                    <div className="flex flex-col items-center mt-8 mb-24 z-10"> {/* Changed to flex-col and added items-center */}
                         <motion.a
                             href="https://live.kplor.kplor.com"
                             target="_blank"
@@ -209,12 +200,12 @@ export default function Home() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.5 }}
-                            className="mt-2 flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg"
-                            style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }}
+                            className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-sm"
+                            style={{ backgroundColor: 'rgba(3, 40, 89, 0.45)' }}
                         >
                             <motion.div
                                 animate={{ 
-                                    scale: [1, 1.3, 1],
+                                    scale: [1, 1.15, 1],
                                     rotate: [0, 5, -5, 0]
                                 }}
                                 transition={{ 
@@ -223,7 +214,7 @@ export default function Home() {
                                     ease: "easeInOut",
                                     times: [0, 0.5, 0.75, 1]
                                 }}
-                                className="text-green-400 text-2xl font-bold"
+                                className="text-green-400 text-base font-normal"
                             >
                                 ✓
                             </motion.div>
@@ -238,7 +229,7 @@ export default function Home() {
                                     ease: "easeInOut",
                                     times: [0, 0.5, 1]
                                 }}
-                                className="text-white text-lg font-semibold"
+                                className="text-white text-xs font-normal"
                             >
                                 No credit card required
                             </motion.p>
@@ -259,7 +250,7 @@ export default function Home() {
                     {/* Content after carousel with radial gradient background */}
                     <div
                       id="features-section"
-                      className="w-full flex flex-col items-center py-16"
+                      className="w-full flex flex-col items-center py-16 px-2 sm:px-6 md:px-12 lg:px-0"
                       style={{
                         background: 'linear-gradient(to bottom right, #fff 0%, #e0f2f7 20%, rgb(40, 98, 173) 50%, rgb(9, 44, 91) 100%)'
                       }}
@@ -281,7 +272,7 @@ export default function Home() {
                       </div>
 
                       {/* FAQ Section in translucent card */}
-                      <section className="w-full max-w-4xl mx-auto my-16 px-4">
+                      <section className="w-full max-w-4xl mx-auto my-16 px-2 sm:px-6 lg:px-0">
                         {/*<div className="backdrop-blur-md bg-white/20 rounded-2xl shadow-xl p-8">*/}
                           <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg mb-12">
                               FAQs
@@ -295,14 +286,14 @@ export default function Home() {
                       </section>
 
                       {/* Final Call to Action - Now in a translucent card */}
-                      <section className="w-full text-center py-16">
+                      <section className="w-full text-center py-16 px-2 sm:px-6 lg:px-0">
                         <div 
                             className="backdrop-blur-md bg-white/20 rounded-2xl shadow-xl p-8 max-w-4xl mx-auto"
                             style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }}
                         >
                           <h2
                               className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
-                              style={{ fontFamily: 'Geist, sans-serif' }} // Apply the stylish Geist font
+                              style={{ fontFamily: 'Geist, sans-serif' }}
                           >
                               Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
                           </h2>
@@ -311,20 +302,19 @@ export default function Home() {
                               target="_blank"
                               rel="noopener noreferrer"
                               whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                              className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
+                              className="block w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto bg-[#00FFFF] text-[#032859] font-bold py-4 px-4 sm:px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center overflow-hidden"
                               style={{boxShadow: `0 0 8px ${neonBlue}`}}
                           >
                               Start Learning with Kplor Now!
                           </motion.a>
                         </div>
-              </section>
-            </div>
+                      </section>
+                    </div>
 
-            
-          </main>
-        </div>
-    </>
-);
+                </main>
+            </div>
+        </>
+    );
 }
 
 // Separate component for FAQ Item
