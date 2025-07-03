@@ -56,17 +56,17 @@ export default function ContactPage() {
     <div 
       className="min-h-screen bg-gradient-to-br from-[#032859] to-[#064f8a] text-white"
       style={{
-                background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)'
-            }}
+        background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)'
+      }}
     >
       {/* Hero Section */}
-      <div className="pt-20 pb-8 px-6 md:px-12 lg:px-24">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="pt-16 pb-6 px-4 sm:px-6 md:px-12 lg:px-24">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
           >
             Contact Us
           </motion.h1>
@@ -74,7 +74,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl mb-2"
+            className="text-base sm:text-lg md:text-xl mb-1 sm:mb-2"
           >
             Reach out to the Kplor team here!
           </motion.p>
@@ -82,7 +82,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-red-300 text-sm italic"
+            className="text-red-300 text-xs sm:text-sm italic"
           >
             *Any job applications sent through the contact form will be rejected.*
           </motion.p>
@@ -90,15 +90,15 @@ export default function ContactPage() {
       </div>
 
       {/* Contact Form */}
-      <div className="px-6 md:px-12 lg:px-24 pb-16">
+      <div className="px-2 sm:px-6 md:px-12 lg:px-24 pb-10 sm:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl"
+          className="w-full max-w-md sm:max-w-lg md:max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-8 shadow-2xl"
           style={{ minHeight: '320px', backgroundColor:'rgba(3, 40, 89, 0.65)'}}
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             {/* Name Field */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
                 placeholder="Enter your full name"
               />
             </div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
                 placeholder="Enter your email address"
               />
             </div>
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 value={formData.role}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
               >
                 <option value="" className="text-gray-800">Select your role</option>
                 <option value="student" className="text-gray-800">Student</option>
@@ -165,7 +165,7 @@ export default function ContactPage() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
               >
                 <option value="" className="text-gray-800">Select a subject</option>
                 <option value="accounts-billing" className="text-gray-800">Accounts & Billing</option>
@@ -189,8 +189,8 @@ export default function ContactPage() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={6}
-                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent resize-vertical"
+                rows={5}
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent resize-vertical"
                 placeholder="Please provide details about your inquiry..."
               />
             </div>

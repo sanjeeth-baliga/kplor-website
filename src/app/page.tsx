@@ -127,7 +127,7 @@ export default function Home() {
             {/* Removed NeuronGridBackground component here */}
             {/* Hero Section with Gradient Background */}
             <section
-                className="relative w-full overflow-hidden px-4 pt-8 min-h-[70vh] flex flex-col items-center justify-start"
+                className="relative w-full overflow-hidden px-2 sm:px-4 pt-6 sm:pt-8 min-h-[70vh] flex flex-col items-center justify-start"
                 style={{
                     // Changed gradient to be more gradual and include a light blue tint
                     background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)',
@@ -137,12 +137,12 @@ export default function Home() {
                 {/* Content of the Hero Section */}
                 <div className="flex flex-col md:flex-row items-start justify-center w-full max-w-7xl mx-auto z-10"> {/* Changed items-center to items-start for alignment */}
                     {/* Title and One-Liner */}
-                    <div className="md:w-6/12 p-8 flex flex-col justify-start">
+                    <div className="md:w-6/12 p-4 sm:p-8 flex flex-col justify-start">
                         <motion.h1
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-6xl sm:text-8xl font-extrabold text-center md:text-left mb-6 drop-shadow-lg text-white"
+                            className="text-3xl sm:text-6xl md:text-8xl font-extrabold text-center md:text-left mb-4 sm:mb-6 drop-shadow-lg text-white"
                         >
                             Your Personal Tutor
                         </motion.h1>
@@ -150,7 +150,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                            className="text-lg sm:text-2xl text-center md:text-left max-w-2xl mb-6 text-white" // Reduced margin bottom
+                            className="text-base sm:text-lg md:text-2xl text-center md:text-left max-w-2xl mb-4 sm:mb-6 text-white"
                         >
                             Built to be your study companion that{" "}
                             <motion.span
@@ -168,7 +168,7 @@ export default function Home() {
                     </div>
 
                     {/* Demo Video */}
-                    <div className="md:w-6/12 p-4 relative flex flex-col items-center justify-start" style={{overflow:'visible', minHeight: '550px'}}> {/* Removed minHeight */}
+                    <div className="md:w-6/12 p-2 sm:p-4 relative flex flex-col items-center justify-start" style={{overflow:'visible', minHeight: '320px'}}> {/* Removed minHeight */}
                         {/* Saturn Rings Animation */}
                         {/*<SaturnRings />*/}
                         {/* Circle Pulse Animation */}
@@ -178,7 +178,7 @@ export default function Home() {
                             animate={{ scale: [1, 2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                         />*/}
-                        <div className="relative z-10 w-[630px] h-[360px] max-w-full" style={{marginTop: 0}}> {/* Larger video, responsive */}
+                        <div className="relative z-10 w-full max-w-[630px] h-[180px] sm:h-[260px] md:h-[360px]" style={{marginTop: 0}}> {/* Larger video, responsive */}
                             <iframe
                             src="https://www.youtube.com/embed/ibTHRYUtktE"
                             title="YouTube video player"
@@ -192,7 +192,7 @@ export default function Home() {
                 </div>
 
                 {/* Try Now Button (part of Hero Section) */}
-                <div className="flex flex-col items-center mt-0 mb-8 z-10"> {/* Changed to flex-col and added items-center */}
+                <div className="flex flex-col items-center mt-8 mb-20 z-10"> {/* Changed to flex-col and added items-center */}
                     <motion.a
                         href="https://live.kplor.kplor.com"
                         target="_blank"
@@ -244,15 +244,16 @@ export default function Home() {
                         </motion.p>
                     </motion.div>
                 </div>
+
             </section>
 
             {/* Main Content Area (White Background) */}
             <main className="flex flex-col items-center justify-start w-full">
-                {/* Loved by Students At */}
-                <div className="text-center text-4xl font-extrabold text-gray-900 mt-10 mb-2 tracking-tight drop-shadow-lg">
+                {/* Carousel in white background - revealed after scroll */}
+                {/* Loved by Students At - visible before scroll */}
+                <div className="text-center text-4xl font-extrabold text-gray-900 mt-12 mb-2 tracking-tight drop-shadow-lg">
                     Loved by students at
                 </div>
-                {/* Carousel in white background */}
                 <section className="w-full max-w-5xl mx-auto mb-24 bg-white py-4">
                     <Carousel/>
                 </section>

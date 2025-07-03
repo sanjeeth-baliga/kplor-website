@@ -19,12 +19,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12">
+    <main className="flex flex-col items-center justify-start min-h-[80vh] px-2 sm:px-4 pt-8 sm:pt-12">
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-4xl sm:text-6xl font-extrabold text-center mb-4 drop-shadow-lg"
+        className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-center mb-4 sm:mb-8 drop-shadow-lg"
       >
         Kplor: Your personalized AI tutor
       </motion.h1>
@@ -32,7 +32,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-        className="text-lg sm:text-2xl text-center max-w-2xl text-white/90 mb-10"
+        className="text-base sm:text-lg md:text-2xl text-center max-w-2xl text-white/90 mb-6 sm:mb-10"
       >
         Kplor can{" "}
         <motion.span
@@ -41,7 +41,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="font-bold" // Style the animated word
+          className="font-bold"
         >
           {animatedWords[currentWordIndex]}
         </motion.span>{" "}
