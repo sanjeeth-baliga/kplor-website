@@ -105,7 +105,7 @@ export default function ContactPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
                 placeholder="Enter your full name"
               />
             </div>
@@ -122,7 +122,7 @@ export default function ContactPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
                 placeholder="Enter your email address"
               />
             </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                 value={formData.role}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
               >
                 <option value="" className="text-gray-800">Select your role</option>
                 <option value="student" className="text-gray-800">Student</option>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent"
               >
                 <option value="" className="text-gray-800">Select a subject</option>
                 <option value="accounts-billing" className="text-gray-800">Accounts & Billing</option>
@@ -184,7 +184,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent resize-vertical"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00FFFF] focus:border-transparent resize-vertical"
                 placeholder="Please provide details about your inquiry..."
               />
             </div>
