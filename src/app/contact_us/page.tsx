@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 
 export default function ContactPage() {
@@ -13,7 +13,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -21,13 +21,13 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
       // Replace with your Google Apps Script URL
-      const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#032859] to-[#064f8a] text-white">
+    <div 
+      className="min-h-screen bg-gradient-to-br from-[#032859] to-[#064f8a] text-white"
+      style={{
+                background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)'
+            }}
+    >
       {/* Hero Section */}
       <div className="pt-20 pb-8 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -91,6 +96,7 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl"
+          style={{ minHeight: '320px', backgroundColor:'rgba(3, 40, 89, 0.65)'}}
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
@@ -207,7 +213,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center text-[#00FFFF] font-medium"
               >
-                Form submitted successfully! We'll get back to you soon.
+                Form submitted successfully! We&apos;ll get back to you soon.
               </motion.div>
             )}
           </form>
