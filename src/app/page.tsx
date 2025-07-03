@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Carousel from "./Carousel";
 import './pulse.css';
 import { useState, useEffect, useRef } from 'react';
-import { SaturnRings } from './saturn_rings';
+//import { SaturnRings } from './saturn_rings';
 // Removed: import NeuronGridBackground from "./NeuronGridBackground";
 
 const animatedWords = ["watches", "listens", "teaches"];
@@ -125,7 +125,7 @@ export default function Home() {
             {/* Removed NeuronGridBackground component here */}
             {/* Hero Section with Gradient Background */}
             <section
-                className="relative w-full overflow-hidden px-4 pt-12 min-h-[80vh] flex flex-col items-center justify-start"
+                className="relative w-full overflow-hidden px-4 pt-8 min-h-[70vh] flex flex-col items-center justify-start"
                 style={{
                     // Changed gradient to be more gradual and include a light blue tint
                     background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)',
@@ -140,7 +140,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-6xl sm:text-8xl font-extrabold text-center md:text-left mb-4 drop-shadow-lg text-white"
+                            className="text-6xl sm:text-8xl font-extrabold text-center md:text-left mb-6 drop-shadow-lg text-white"
                         >
                             Your Personal Tutor
                         </motion.h1>
@@ -148,7 +148,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                            className="text-lg sm:text-2xl text-center md:text-left max-w-2xl mb-10 text-white" // Removed text-white/90
+                            className="text-lg sm:text-2xl text-center md:text-left max-w-2xl mb-6 text-white" // Reduced margin bottom
                         >
                             Built to be your study companion that{" "}
                             <motion.span
@@ -157,7 +157,7 @@ export default function Home() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="font-bold"
+                                className="font-bold text-[#00FFFF]"
                             >
                                 {animatedWords[currentWordIndex]}
                             </motion.span>{" "}
@@ -166,16 +166,16 @@ export default function Home() {
                     </div>
 
                     {/* Demo Video */}
-                    <div className="md:w-6/12 p-4 relative flex flex-col items-center justify-start" style={{overflow:'visible', minHeight: '600px'}}> {/* Increased minHeight and overflow */}
+                    <div className="md:w-6/12 p-4 relative flex flex-col items-center justify-start" style={{overflow:'visible', minHeight: '550px'}}> {/* Removed minHeight */}
                         {/* Saturn Rings Animation */}
-                        <SaturnRings />
+                        {/*<SaturnRings />*/}
                         {/* Circle Pulse Animation */}
-                        <motion.div
+                        {/*<motion.div
                             className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-80 h-80 rounded-full bg-cyan-500 opacity-30 z-0" // Increased w/h to 80 (320px)
                             style={{  boxShadow: `0 0 60px ${neonBlue}, 0 0 80px ${neonBlue}`}}
                             animate={{ scale: [1, 2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        />
+                        />*/}
                         <div className="relative z-10 w-[630px] h-[360px] max-w-full" style={{marginTop: 0}}> {/* Larger video, responsive */}
                             <iframe
                             src="https://www.youtube.com/embed/ibTHRYUtktE"
@@ -190,7 +190,7 @@ export default function Home() {
                 </div>
 
                 {/* Try Now Button (part of Hero Section) */}
-                <div className="flex justify-center mt-0 mb-10 z-10"> {/* Reduced top margin to move button up */}
+                <div className="flex flex-col items-center mt-0 mb-8 z-10"> {/* Changed to flex-col and added items-center */}
                     <motion.a
                         href="https://live.kplor.kplor.com"
                         target="_blank"
@@ -201,64 +201,122 @@ export default function Home() {
                     >
                         Start Learning for Free
                     </motion.a>
+                    
+                    {/* No Credit Card Required Animation */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="mt-2 flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg"
+                        style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }}
+                    >
+                        <motion.div
+                            animate={{ 
+                                scale: [1, 1.3, 1],
+                                rotate: [0, 5, -5, 0]
+                            }}
+                            transition={{ 
+                                duration: 1.5, 
+                                repeat: Infinity, 
+                                ease: "easeInOut",
+                                times: [0, 0.5, 0.75, 1]
+                            }}
+                            className="text-green-400 text-2xl font-bold"
+                        >
+                            ✓
+                        </motion.div>
+                        <motion.p
+                            animate={{ 
+                                opacity: [0.6, 1, 0.6],
+                                x: [0, 2, 0]
+                            }}
+                            transition={{ 
+                                duration: 2, 
+                                repeat: Infinity, 
+                                ease: "easeInOut",
+                                times: [0, 0.5, 1]
+                            }}
+                            className="text-white text-lg font-semibold"
+                        >
+                            No credit card required
+                        </motion.p>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Main Content Area (White Background) */}
-            <main className="flex flex-col items-center justify-start w-full bg-white text-black py-16"> {/* Set background to white and text to black */}
-
+            <main className="flex flex-col items-center justify-start w-full">
                 {/* Loved by Students At */}
-                <div className="text-center text-4xl font-extrabold text-gray-900 mb-4 tracking-tight drop-shadow-lg"> {/* Bolder, darker, modern */}
+                <div className="text-center text-4xl font-extrabold text-gray-900 mt-10 mb-2 tracking-tight drop-shadow-lg">
                     Loved by students at
                 </div>
-
-                {/* Universities Carousel - Adjusted to match feature card width */}
-                <section className="w-full max-w-5xl mx-auto mb-24">
+                {/* Carousel in white background */}
+                <section className="w-full max-w-5xl mx-auto mb-24 bg-white py-4">
                     <Carousel/>
                 </section>
-                <div id="features-section" className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12"> {/* Adjusted text color */}
-                    Why You&apos;ll Love Learning with Kplor
+                {/* Content after carousel with radial gradient background */}
+                <div
+                  id="features-section"
+                  className="w-full flex flex-col items-center py-16"
+                  style={{
+                    background: 'linear-gradient(to bottom right, #fff 0%, #e0f2f7 20%, rgb(40, 98, 173) 50%, rgb(9, 44, 91) 100%)'
+                  }}
+                >
+                  <div className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12 mt-6">
+                      Why You&apos;ll Love Learning with Kplor
+                  </div>
+
+                  {/* Feature Sections in translucent cards */}
+                  <div className="w-full flex flex-col items-center">
+                    {features.map((feature, index) => (
+                        //<div key={index} className="backdrop-blur-md bg-white/20 rounded-2xl shadow-xl mb-8 w-full max-w-5xl">
+                        <FeatureSection
+                            key={index}
+                            feature={feature}
+                        />
+                        //</div>
+                    ))}
+                  </div>
+
+                  {/* FAQ Section in translucent card */}
+                  <section className="w-full max-w-4xl mx-auto my-16 px-4">
+                    {/*<div className="backdrop-blur-md bg-white/20 rounded-2xl shadow-xl p-8">*/}
+                      <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg mb-12">
+                          FAQs
+                      </h2>
+                      <div className="space-y-6">
+                          {faqs.map((faq, index) => (
+                              <FAQItem key={index} question={faq.question} answer={faq.answer} />
+                          ))}
+                      </div>
+                    {/*</div>*/}
+                  </section>
+
+                  {/* Final Call to Action - Now in a translucent card */}
+                  <section className="w-full text-center py-16">
+                    <div 
+                        className="backdrop-blur-md bg-white/20 rounded-2xl shadow-xl p-8 max-w-4xl mx-auto"
+                        style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }}
+                    >
+                      <h2
+                          className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
+                          style={{ fontFamily: 'Geist, sans-serif' }} // Apply the stylish Geist font
+                      >
+                          Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
+                      </h2>
+                      <motion.a
+                          href="https://live.kplor.kplor.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                          className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
+                          style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                      >
+                          Start Learning with Kplor Now!
+                      </motion.a>
+                    </div>
+                  </section>
                 </div>
-
-                {/* Feature Sections */}
-                {features.map((feature, index) => (
-                    <FeatureSection
-                        key={index}
-                        feature={feature}
-                    />
-                ))}
-
-                {/* FAQ Section */}
-                <section className="w-full max-w-4xl mx-auto my-16 px-4">
-                    <h2 className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12"> {/* Adjusted text color */}
-                        Frequently Asked Questions
-                    </h2>
-                    <div className="space-y-6">
-                        {faqs.map((faq, index) => (
-                            <FAQItem key={index} question={faq.question} answer={faq.answer} />
-                        ))}
-                    </div>
-                </section>
-
-                {/* Final Call to Action - Now in a light blue container */}
-                <section className="w-full text-center py-16">
-                    <div className="bg-[#032859] p-8 rounded-xl max-w-4xl mx-auto"> {/* New container with dark blue background */}
-                        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"> {/* Changed text color to white and reduced size */}
-                            Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
-                        </h2>
-                        <motion.a
-                            href="https://live.kplor.kplor.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                            className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
-                            style={{boxShadow: `0 0 8px ${neonBlue}`}}
-                        >
-                            Start Learning with Kplor Now!
-                        </motion.a>
-                    </div>
-                </section>
-
             </main>
         </>
     );
@@ -270,8 +328,8 @@ function FAQItem({ question, answer }: FAQ) {
 
     return (
         <div
-            className="backdrop-blur-sm bg-white/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out"
-            style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }} // Keep this as it's for the FAQ item itself
+            className="backdrop-blur-sm bg-white/20 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out"
+            //style={{ backgroundColor: 'rgba(3, 40, 89, 0.65)' }} // Keep this as it's for the FAQ item itself
         >
             <button
                 className="w-full flex justify-between items-center p-6 text-left text-lg font-semibold text-white cursor-pointer"
@@ -307,11 +365,11 @@ function FeatureSection({ feature }: { feature: Feature }) {
 
     const direction = feature.imagePlacement === "left" ? -1 : 1;
     const animationVariants = {
-        hidden: {opacity: 0, x: 80 * direction, backgroundColor: 'rgba(3, 40, 89, 0.95)'},
+        hidden: {opacity: 0, x: 80 * direction, backgroundColor: 'rgba(3, 40, 89, 0.65)'},
         visible: {
             opacity: 1,
             x: 0,
-            backgroundColor: 'rgba(3, 40, 89, 0.95)',
+            backgroundColor: 'rgba(3, 40, 89, 0.75)',
             transition: {
                 duration: 0.9,
                 ease: 'easeOut',

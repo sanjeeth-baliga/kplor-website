@@ -43,7 +43,7 @@ export default function Carousel() {
         {[...universityLogos, ...universityLogos].map((logo, index) => (
           <div
             key={index}
-            className="flex items-center justify-center mx-4 min-w-[200px]"
+            className="flex items-center justify-center mx-4 min-w-[200px] my-4"
           >
             <div className="bg-white p-2 rounded-xl shadow-xl shadow-gray-500/50 h-44 w-60 flex items-center justify-center">
               <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain opacity-60" />
