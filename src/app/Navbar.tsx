@@ -65,14 +65,14 @@ export default function Navbar() {
             >
               <Link
                 href="/about"
-                className="block px-4 py-2 text-sm hover:bg-[#00FFFF] hover:text-[#032859]"
+                className="block px-4 py-2 text-m hover:bg-[#00FFFF] hover:text-[#032859]"
                 onClick={closeMenu} // Close menu when Team is clicked
               >
                 Team
               </Link>
               <Link
                 href="#" // Keep href="#" for now as requested
-                className="block px-4 py-2 text-sm hover:bg-[#00FFFF] hover:text-[#032859]"
+                className="block px-4 py-2 text-m hover:bg-[#00FFFF] hover:text-[#032859]"
                 onClick={closeMenu} // Close menu when Blog is clicked (no navigation)
               >
                 Blog
@@ -81,7 +81,7 @@ export default function Navbar() {
           )}
         </div>
 
-        <Link href="/contact" onClick={closeMenu}>Contact</Link>
+        <Link href="/contact_us" onClick={closeMenu}>Contact</Link>
       </div>
 
       {/* Sign-Up Button */}

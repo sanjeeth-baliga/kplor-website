@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link"; // Import Link for internal navigation or external links
 import { FaLinkedin, FaEnvelope } from 'react-icons/fa'; // Import icons
-import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
+
 // Define the data for team members
 const teamMembers = [
     {
@@ -26,7 +26,7 @@ const teamMembers = [
         name: "Nitesh",
         role: "Founding Team-AI Engineer",
         oneLiner: "Crafting engaging and adaptive learning experiences.",
-        photo: "/nitzkp1.1.jpeg",
+        photo: "/nitesh.jpg",
         linkedin: "https://www.linkedin.com/in/nitesh-wadhavinde/",
         email: "alice.johnson@example.com",
     },
@@ -36,12 +36,7 @@ const neonBlue = '#00FFFF'; // Reusing the neonBlue color from page.tsx
 
 export default function AboutPage() {
     return (
-        <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12"
-            style={{
-                    // Changed gradient to be more gradual and include a light blue tint
-                    background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)',
-                    color: '#032859' // Changed text color to dark blue for better visibility as background lightens
-                }}>
+        <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12">
             {/* About Us Title */}
             <motion.h1
                 initial={{ opacity: 0, y: 40 }}
@@ -61,14 +56,14 @@ export default function AboutPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
                         className="bg-white/10 rounded-2xl p-8 flex flex-col items-center text-center shadow-xl backdrop-blur-sm"
-                        style={{ minHeight: '320px', backgroundColor:'#032859'}} // Consistent background with feature sections
+                        style={{ minHeight: '320px', backgroundColor: 'rgba(3, 40, 89, 0.65)' }} // Consistent background with feature sections
                     >
                         {/* Photo */}
                         <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-white/20 shadow-lg">
                             <img
                                 src={member.photo}
                                 alt={member.name}
-                                className={`w-full h-full object-cover ${member.name === 'Nitesh' ? 'object-[60%_30%]' : ''}`}
+                                className="w-full h-full object-cover"
                             />
                         </div>
 

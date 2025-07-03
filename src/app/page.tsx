@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import Carousel from "./Carousel";
 import './pulse.css';
 import { useState, useEffect, useRef } from 'react';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa'; // Import icons
+import {  FaXTwitter, FaYoutube, FaInstagram } from 'react-icons/fa6';
 //import { SaturnRings } from './saturn_rings';
 // Removed: import NeuronGridBackground from "./NeuronGridBackground";
 
@@ -315,11 +317,13 @@ export default function Home() {
                           Start Learning with Kplor Now!
                       </motion.a>
                     </div>
-                  </section>
-                </div>
-            </main>
-        </>
-    );
+      </section>
+    </div>
+
+    
+  </main>
+</>
+);
 }
 
 // Separate component for FAQ Item
