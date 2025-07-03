@@ -36,13 +36,13 @@ const neonBlue = '#00FFFF'; // Reusing the neonBlue color from page.tsx
 
 export default function AboutPage() {
     return (
-        <main className="flex flex-col items-center justify-start min-h-[80vh] px-4 pt-12">
+        <main className="flex flex-col items-center justify-start min-h-[80vh] px-2 sm:px-4 pt-8 sm:pt-12">
             {/* About Us Title */}
             <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-4xl sm:text-6xl font-extrabold text-center text-white mb-16 drop-shadow-lg"
+                className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-center text-white mb-8 sm:mb-16 drop-shadow-lg"
             >
                 Meet Our Team
             </motion.h1>
