@@ -12,15 +12,15 @@ const teamMembers = [
         oneLiner: "Passionate about revolutionizing education with AI.",
         photo: "/mukil.jpg", // Replace with actual image paths
         linkedin: "https://www.linkedin.com/in/mukil-vannan-804706a5/",
-        email: "john.doe@example.com",
+        email: "mukil@kplor.com",
     },
     {
         name: "Sanjeeth",
         role: "Co-Founder & CTO",
-        oneLiner: "Building intelligent systems that empower learners.",
+        oneLiner: "A builder who speaks fluent business, but still codes his dreams into reality",
         photo: "/sanjeeth.jpg",
         linkedin: "https://www.linkedin.com/in/sanjeethbaliga/",
-        email: "jane.smith@example.com",
+        email: "sanjeeth@kplor.com",
     },
     {
         name: "Nitesh",
@@ -28,7 +28,7 @@ const teamMembers = [
         oneLiner: "Crafting engaging and adaptive learning experiences.",
         photo: "/nitzkp1.1.jpeg",
         linkedin: "https://www.linkedin.com/in/nitesh-wadhavinde/",
-        email: "alice.johnson@example.com",
+        email: "info@kplor.com",
     },
 ];
 
