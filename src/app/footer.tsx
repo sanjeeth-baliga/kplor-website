@@ -1,5 +1,6 @@
 // components/Footer.tsx
 import { FaLinkedin, FaXTwitter, FaYoutube, FaInstagram } from 'react-icons/fa6';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -37,9 +38,9 @@ export default function Footer() {
         {/* Right Side */}
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-col mr-8">
-            <a href="/contact" className="mb-2 text-base hover:text-[#00FFFF]">Contact Us</a>
-            <a href="https://kplor.com/privacy-policy" className="mb-2 text-base hover:text-[#00FFFF]">Privacy Policy</a>
-            <a href="https://kplor.com/terms-and-conditions" className="text-base hover:text-[#00FFFF]">Terms & Conditions</a>
+            <Link href="/contact_us" className="mb-2 text-base hover:text-[#00FFFF]">Contact Us</Link>
+            <Link href="/privacy-policy" className="mb-2 text-base hover:text-[#00FFFF]">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="mb-2 text-base hover:text-[#00FFFF]">Terms & Conditions</Link>
           </div>
           <div className="flex flex-col">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYycB7n_i7OhUmFt2JwvIaD396kFJgACBn_04Yf_QQII4JDw/viewform" className="mb-2 text-base hover:text-[#00FFFF]">Feedback</a>
