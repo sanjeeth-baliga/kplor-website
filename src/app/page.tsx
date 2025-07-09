@@ -22,37 +22,37 @@ const features: Feature[] = [
     {
         title: "Learn with a Tailored Learning Path",
         description: "Get a study plan customized to your goals, strengths, and time. Clear direction, no clutter, no wasted effort",
-        image: "/sample.svg",
+        image: "/learning_path.gif",
         imagePlacement: "right", // "left" or "right"
     },
     {
         title: "Interact with a Dedicated Study Mate",
         description: "Kplor doesn't just teach — it listens and interacts. Whether you need a slower pace, a confidence boost, or a moment to breathe, you're not alone",
-        image: "/sample.svg",
+        image: "/study_mate.png",
         imagePlacement: "left",
     },
     {
         title: "So Engaging, You'll Forget It's Study Time",
         description: "What if complex ideas turn into binge-worthy learning videos ? With vibrant visuals and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
-        image: "/sample.svg",
+        image: "/Engaging_video.gif",
         imagePlacement: "right",
     },
     {
         title: "Smart Nudges for Doubts and Assessment",
         description: "Kplor guides, not dictates. It gives the right push to solve doubts and crack assessments, helping you think your way through",
-        image: "/sample.svg",
+        image: "/doubt_assessment.gif",
         imagePlacement: "left",
     },
     {
         title: "Attention Is All You Need",
         description: "No more cognitive overload from planning or pacing. Kplor does it for you. Just show up and learn",
-        image: "/sample.svg",
+        image: "/attention.png",
         imagePlacement: "right",
     },
     {
         title: "Your Data. Your Space. No Exceptions",
         description: "Kplor protects your privacy like a fortress. No raw visuals stored. No voice stored. No data shared",
-        image: "/sample.svg",
+        image: "/safe_data.png",
         imagePlacement: "left",
     }
 
