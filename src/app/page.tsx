@@ -391,9 +391,10 @@ function FeatureSection({ feature }: { feature: Feature }) {
                     <motion.img
                         src={feature.image}
                         alt={feature.title}
-                        className="w-48 h-48 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
+                        className="w-48 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
                     />
                 </div>
+                
             )}
 
             {/* Text Content */}
@@ -417,7 +418,7 @@ function FeatureSection({ feature }: { feature: Feature }) {
                     <motion.img
                         src={feature.image}
                         alt={feature.title}
-                        className="w-48 h-48 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
+                        className="w-48 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
                     />
                 </div>
             )}
