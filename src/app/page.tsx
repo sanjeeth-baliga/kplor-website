@@ -85,7 +85,7 @@ const faqs: FAQ[] = [
     },
     {
         question: "What devices and browsers are supported?",
-        answer: "Currently, you can run Kplor on any web browser from Desktop. We are for building smartphones and tablets. Stayed tuned for the launch."
+        answer: "Currently, you can run Kplor on any web browser from Desktop. We are building for smartphones and tablets. Stayed tuned for the launch."
     },
     {
         question: "Is the AI watching me while using the platform?",
