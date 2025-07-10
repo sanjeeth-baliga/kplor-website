@@ -73,7 +73,7 @@ const faqs: FAQ[] = [
     },
     {
         question: "Is it specific to any university students?",
-        answer: "Kplor is trained on all Top Indian universities curriculum; User can pick / choose relevant topics."
+        answer: "Kplor is set to be trained on all Top Indian universities curriculum; User can pick / choose relevant topics."
     },
     {
         question: "Is it free to use or paid?",
@@ -85,7 +85,7 @@ const faqs: FAQ[] = [
     },
     {
         question: "What devices and browsers are supported?",
-        answer: "Currently, you can run Kplor on any web browser from Desktop. We are building smartphones and tablets. Stayed tuned for the launch."
+        answer: "Currently, you can run Kplor on any web browser from Desktop. We are building for smartphones and tablets. Stay tuned for the launch."
     },
     {
         question: "Is the AI watching me while using the platform?",
@@ -105,7 +105,7 @@ const faqs: FAQ[] = [
     },
     {
         question: "I'm a professor. How can I get my students to use it?",
-        answer: "Just write to our founders at mukil@kplor.com and we will reach out to you."
+        answer: "Just write to our founder at mukil@kplor.com and we will reach out to you."
     }
 
 ];
