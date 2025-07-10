@@ -25,7 +25,7 @@ const teamMembers = [
     {
         name: "Nitesh",
         role: "Founding Team-AI Engineer",
-        oneLiner: "Crafting engaging and adaptive learning experiences.",
+        oneLiner: "A problem solver who gets things done",
         photo: "/nitzkp1.1.jpeg",
         linkedin: "https://www.linkedin.com/in/nitesh-wadhavinde/",
         email: "info@kplor.com",
