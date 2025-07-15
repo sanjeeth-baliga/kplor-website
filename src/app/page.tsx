@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from 'react';
 // Removed: import NeuronGridBackground from "./NeuronGridBackground";
 
 const animatedWords = ["aspirants", "hustlers", "toppers", "procrastinators"];
-const qualityWords = ["guide", "teach", "practice", "declutter"];
+//const qualityWords = ["guide", "teach", "practice", "declutter"];
 
 type Feature = {
     title: string;
