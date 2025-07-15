@@ -171,8 +171,8 @@ export default function Home() {
                                     className="font-bold text-[#00FFFF]"
                                 >
                                     {animatedWords[currentWordIndex]}
-                                </motion.span>{" "}
-                                . A sidekick to effortlessly guide and save last minute exam panic
+                                </motion.span><br/>
+                                A sidekick to effortlessly guide and save last minute exam panic
                             </motion.p>
                         </div>
 
