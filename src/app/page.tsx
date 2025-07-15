@@ -70,7 +70,11 @@ type FAQ = {
 const faqs: FAQ[] = [
     {
         question: "Which courses can I learn from Kplor?",
-        answer: "Everything! You can add a request for your University, Course; Upload your details & BAM! Kplor will your prepare your course once more of your friends request for the same. Once the threshold is reached. BAM! Kplor creates the course within days & you’ll start learning"
+        answer: "Engineering Mathematics for now, but other subjects are in the pipeline based on an interest gauging exercise."
+    },
+    { 
+        question: "What if my course isn’t on Kplor yet?",
+        answer: "Just request it & upload your details. Once enough of your friends do the same, Kplor builds the course in days and BAM! You’re learning.",
     },
     {
         question: "Is it specific to any university students?",
@@ -168,18 +172,7 @@ export default function Home() {
                                 >
                                     {animatedWords[currentWordIndex]}
                                 </motion.span>{" "}
-                                . A sidekick to effortlessly{" "}
-                                <motion.span
-                                    key={currentWordIndex}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                                    className="font-bold text-[#00FFFF]"
-                                >
-                                    {qualityWords[currentWordIndex]}
-                                </motion.span>{" "}
-                                and save last minute exam panic
+                                . A sidekick to effortlessly guide and save last minute exam panic
                             </motion.p>
                         </div>
 
