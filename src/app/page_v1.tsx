@@ -9,8 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 //import { SaturnRings } from './saturn_rings';
 // Removed: import NeuronGridBackground from "./NeuronGridBackground";
 
-const animatedWords = ["aspirants", "hustlers", "toppers", "procrastinators"];
-const qualityWords = ["guide", "teach", "practice", "declutter"];
+const animatedWords = ["watches", "listens", "teaches"];
 
 type Feature = {
     title: string;
@@ -21,32 +20,32 @@ type Feature = {
 
 const features: Feature[] = [
     {
-        title: "Study What Matters, When it Matters",
-        description: "Kplor is that studious friend who knows what to focus on and in what order. Learn and practice what your examiners want on the answer sheet.",
+        title: "Learn with a Tailored Learning Path",
+        description: "Get a study plan customized to your goals, strengths, and time. Clear direction, no clutter, no wasted effort",
         image: "/learning_path.gif",
         imagePlacement: "right", // "left" or "right"
     },
     {
-        title: "Liberate yourself from comparison or judgement",
-        description: "Kplor won't judge your pace, your questions or your panic. Whether you need a slower pace, a confidence boost, or a moment to breathe, it's got your back",
+        title: "Interact with a Dedicated Study Mate",
+        description: "Kplor doesn't just teach — it listens and interacts. Whether you need a slower pace, a confidence boost, or a moment to breathe, you're not alone",
         image: "/study_mate.png",
         imagePlacement: "left",
     },
     {
-        title: "Your questions answered before you forget them",
-        description: "No more waiting on professors or chasing replies. With instant doubt solving and smarter assessments, Kplor answers your questions before they fade or get buried",
+        title: "So Engaging, You'll Forget It's Study Time",
+        description: "What if complex ideas turn into binge-worthy learning videos ? With vibrant visuals and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
         image: "/Engaging_video.gif",
         imagePlacement: "right",
     },
     {
-        title: "So Bingeworthy, you'll Forget you are studying",
-        description: "With vibrant videos and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
+        title: "Smart Nudges for Doubts and Assessment",
+        description: "Kplor guides, not dictates. It gives the right push to solve doubts and crack assessments, helping you think your way through",
         image: "/doubt_assessment.gif",
         imagePlacement: "left",
     },
     {
-        title: "Get rescued when caught in doom scrolling",
-        description: "Kplor sees when you're zoning out, scrolling away, or just done. It nudges you back and keeps your study streak alive",
+        title: "Attention Is All You Need",
+        description: "No more cognitive overload from planning or pacing. Kplor does it for you. Just show up and learn",
         image: "/attention.png",
         imagePlacement: "right",
     },
@@ -69,19 +68,19 @@ type FAQ = {
 // Dummy FAQ data
 const faqs: FAQ[] = [
     {
-        question: "Which courses can I learn from Kplor?",
-        answer: "Everything! You can add a request for your University, Course; Upload your details & BAM! Kplor will your prepare your course once more of your friends request for the same. Once the threshold is reached. BAM! Kplor creates the course within days & you’ll start learning"
+        question: "Which subjects does it offer?",
+        answer: "The platform offers Engineering Mathematics right now, but will soon be available for other subjects as well."
     },
     {
         question: "Is it specific to any university students?",
-        answer: "Kplor can be trained on all Top Indian universities curriculum; User can pick / choose relevant topics."
+        answer: "Kplor is set to be trained on all Top Indian universities curriculum; User can pick / choose relevant topics."
     },
     {
         question: "Is it free to use or paid?",
         answer: "The beta version is free to use, but will eventually charge a nominal one time fee. Sign-up early for free credits."
     },
     {
-        question: "Does Kplor store my data? What about its safety?",
+        question: "Is my data stored and is it safe?",
         answer: "Your raw facial and voice data won't be stored. Kplor does not share data with third parties."
     },
     {
@@ -94,15 +93,11 @@ const faqs: FAQ[] = [
     },
     {
         question: "Can I turn off the camera?",
-        answer: "Yes, you can opt out of facial tracking. But distraction detection will be disabled in this case."
-    },
-    {
-        question: "How will it help me hack my grades within a short span?",
-        answer: "Kplor runs an algorithm that identifies the key topics and questions required to crack an exam based on past university papers. It can roll out practice assessments while explaining unclear concepts with this understanding"   
+        answer: "No, you cannot turn off the camera as it is required to ensure a distraction-free environment."
     },
     {
         question: "Will it give proper conceptual explanations or just give answers?",
-        answer: "Kplor is the answer to all your learning requirements - whether it is understanding a concept, resolving a doubt, clearing out fundamentals or solving practice problems with you"
+        answer: "Kplor is the answer to all your learning requirements - whether it is understanding a concept, resolving a doubt, clearing out fundamentals or getting you exam ready."
     },
     {
         question: "Can Kplor create a study schedule based on a deadline?",
@@ -149,7 +144,7 @@ export default function Home() {
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 className="text-3xl sm:text-6xl md:text-8xl font-extrabold text-center md:text-left mb-4 sm:mb-6 drop-shadow-lg text-white"
                             >
-                                Hack Your Grades
+                                Your Personal Tutor
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -157,7 +152,7 @@ export default function Home() {
                                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                                 className="text-base sm:text-lg md:text-2xl text-center md:text-left max-w-2xl mb-4 sm:mb-6 text-white"
                             >
-                                Built for the{" "}
+                                Built to be your study companion that{" "}
                                 <motion.span
                                     key={currentWordIndex}
                                     initial={{ opacity: 0 }}
@@ -168,18 +163,7 @@ export default function Home() {
                                 >
                                     {animatedWords[currentWordIndex]}
                                 </motion.span>{" "}
-                                . A sidekick to effortlessly{" "}
-                                <motion.span
-                                    key={currentWordIndex}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                                    className="font-bold text-[#00FFFF]"
-                                >
-                                    {qualityWords[currentWordIndex]}
-                                </motion.span>{" "}
-                                and save last minute exam panic
+                                - the way you need it
                             </motion.p>
                         </div>
 
@@ -208,7 +192,7 @@ export default function Home() {
                             className=" bg-[#00FFFF] text-[#032859] font-bold py-6 px-12 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-2xl"
                             style={{boxShadow: `0 0 8px ${neonBlue}`}}
                         >
-                            Try the Cheat Code for Free
+                            Start Learning for Free
                         </motion.a>
                         
                         {/* No Credit Card Required Animation */}
@@ -272,7 +256,7 @@ export default function Home() {
                       }}
                     >
                       <div className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12 mt-6">
-                          What makes Kplor a Grade Hacking Machine
+                          Why You&apos;ll Love Learning with Kplor
                       </div>
 
                       {/* Feature Sections in translucent cards */}
@@ -311,7 +295,7 @@ export default function Home() {
                               className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
                               style={{ fontFamily: 'Geist, sans-serif' }}
                           >
-                              The world is unfair and grades get you shortlists and admits. Overcome this hurdle now with Kplor
+                              Kplor is here, always ready, always adapting. Ready to discover what personalized learning really feels like ?
                           </h2>
                           <motion.a
                               href="https://live.kplor.kplor.com"
@@ -321,7 +305,7 @@ export default function Home() {
                               className="block w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto bg-[#00FFFF] text-[#032859] font-bold py-4 px-4 sm:px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center overflow-hidden"
                               style={{boxShadow: `0 0 8px ${neonBlue}`}}
                           >
-                              Hack your Grades with Kplor Now!
+                              Start Learning with Kplor Now!
                           </motion.a>
                         </div>
                       </section>
