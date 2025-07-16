@@ -58,8 +58,9 @@ export default function Navbar() {
 
       {/* Sign-Up Button */}
       <motion.button
+        onClick={() => window.open('https://live.kplor.kplor.com', '_blank')}
         whileHover={{ scale: 1.1, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}`, backgroundColor: '#00FFFF', color: '#032859' }}
-        className="bg-[#00FFFF] text-[#032859] font-bold py-2 px-4 rounded-full shadow-md hover:shadow-xl transition-all duration-200 ml-2 flex-shrink-0"
+        className="cursor-pointer bg-[#00FFFF] text-[#032859] font-bold py-2 px-4 rounded-full shadow-md hover:shadow-xl transition-all duration-200 ml-2 flex-shrink-0"
       >
         Sign Up
       </motion.button>
