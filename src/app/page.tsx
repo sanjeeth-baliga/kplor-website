@@ -35,13 +35,13 @@ const features: Feature[] = [
     {
         title: "Your questions answered before you forget them",
         description: "No more waiting on professors or chasing replies. With instant doubt solving and smarter assessments, Kplor answers your questions before they fade or get buried",
-        image: "/Engaging_video.gif",
+        image: "/doubt_assessment.gif",
         imagePlacement: "right",
     },
     {
         title: "So Bingeworthy, you'll Forget you are studying",
         description: "With vibrant videos and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
-        image: "/doubt_assessment.gif",
+        image: "/Engaging_video.gif",
         imagePlacement: "left",
     },
     {
@@ -146,12 +146,12 @@ export default function Home() {
                     {/* Content of the Hero Section */}
                     <div className="flex flex-col md:flex-row items-start justify-center w-full max-w-7xl mx-auto z-10"> {/* Changed items-center to items-start for alignment */}
                         {/* Title and One-Liner */}
-                        <div className="md:w-6/12 p-4 sm:p-8 flex flex-col justify-start">
+                        <div className="md:w-6/12 p-4 sm:p-8 flex flex-col justify-start items-center">
                             <motion.h1
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
-                                className="text-3xl sm:text-6xl md:text-8xl font-extrabold text-center md:text-left mb-4 sm:mb-6 drop-shadow-lg text-white"
+                                className="text-3xl sm:text-6xl md:text-8xl font-extrabold text-left mb-4 sm:mb-6 drop-shadow-lg text-white"
                             >
                                 Hack Your Grades
                             </motion.h1>
@@ -159,7 +159,7 @@ export default function Home() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                                className="text-base sm:text-lg md:text-2xl text-center md:text-left max-w-2xl mb-4 sm:mb-6 text-white"
+                                className="text-base sm:text-lg md:text-2xl text-left max-w-2xl mb-4 sm:mb-6 text-white"
                             >
                                 Built for the{" "}
                                 <motion.span
@@ -174,83 +174,108 @@ export default function Home() {
                                 </motion.span><br/>
                                 A sidekick to effortlessly guide and save last minute exam panic
                             </motion.p>
-                        </div>
-
-                        {/* Demo Video */}
-                        <div className="md:w-6/12 p-2 sm:p-4 flex flex-col items-center justify-center w-full" style={{overflow:'visible', minHeight: '320px'}}>
-                            <div className="relative z-10 w-full max-w-[630px] h-[180px] sm:h-[260px] md:h-[360px] mx-auto" style={{marginTop: 0}}>
+                            {/* YouTube Video - moved up */}
+                            <div className="relative z-10 w-full max-w-[400px] h-[160px] sm:h-[200px] md:h-[220px] mx-auto mt-10">
                                 <iframe
-                                src="https://www.youtube.com/embed/ibTHRYUtktE"
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                className="w-full h-full rounded-2xl shadow-2xl border-4 border-white/30"
+                                    src="https://www.youtube.com/embed/ibTHRYUtktE"
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                    className="w-full h-full rounded-2xl shadow-2xl border-4 border-white/30"
                                 ></iframe>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Try Now Button (part of Hero Section) */}
-                    <div className="flex flex-col items-center mt-8 mb-24 z-10"> {/* Changed to flex-col and added items-center */}
-                        <motion.a
-                            href="https://live.kplor.kplor.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                            className=" bg-[#00FFFF] text-[#032859] font-bold py-6 px-12 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-2xl"
-                            style={{boxShadow: `0 0 8px ${neonBlue}`}}
-                        >
-                            Try the Cheat Code for Free
-                        </motion.a>
-                        
-                        {/* No Credit Card Required Animation */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-sm"
-                            style={{ backgroundColor: 'rgba(3, 40, 89, 0.45)' }}
-                        >
-                            <motion.div
-                                animate={{ 
-                                    scale: [1, 1.15, 1],
-                                    rotate: [0, 5, -5, 0]
-                                }}
-                                transition={{ 
-                                    duration: 1.5, 
-                                    repeat: Infinity, 
-                                    ease: "easeInOut",
-                                    times: [0, 0.5, 0.75, 1]
-                                }}
-                                className="text-green-400 text-base font-normal"
-                            >
-                                ✓
-                            </motion.div>
-                            <motion.p
-                                animate={{ 
-                                    opacity: [0.6, 1, 0.6],
-                                    x: [0, 2, 0]
-                                }}
-                                transition={{ 
-                                    duration: 2, 
-                                    repeat: Infinity, 
-                                    ease: "easeInOut",
-                                    times: [0, 0.5, 1]
-                                }}
-                                className="text-white text-xs font-normal"
-                            >
-                                No credit card required
-                            </motion.p>
-                        </motion.div>
+                        {/* Website Preview on full RHS with heading */}
+                        <div className="md:w-6/12 p-2 sm:p-4 flex flex-col items-end justify-start w-full gap-5" style={{overflow:'visible', minHeight: '320px', marginLeft: '1rem'}}>
+                            <div className="w-full mt-7">
+                                <h2 className="text-xl sm:text-3xl font-bold text-[#00FFFF] text-center md:text-left mb-1">Add Your Course 👇</h2>
+                            </div>
+                            <div className="relative z-10 w-full h-[350px] sm:h-[350px] md:h-[350px]" style={{overflow: 'hidden', marginLeft: 'auto'}}>
+                                <div className="rounded-2xl shadow-2xl border-4 border-white/30 overflow-hidden bg-white/80 relative w-full h-full">
+                                    <img
+                                        src="/Hack_Machine.gif"
+                                        alt="Hack Machine Preview"
+                                        className="w-full h-full object-center rounded-xl"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                        }}
+                                    />
+                                    {/* Clickable overlay */}
+                                    <a
+                                        href="https://machine-beta-three.vercel.app/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="absolute inset-0 z-20"
+                                        style={{ cursor: 'pointer' }}
+                                        aria-label="Open course request form"
+                                    >
+                                        <span className="sr-only">Open course request form</span>
+                                    </a>
+                                </div>
+                            </div>
+                            {/* Try Now Button and Label - moved below GIF */}
+                            <div className="flex flex-col items-center w-full mt-8">
+                                <motion.a
+                                    href="https://live.kplor.kplor.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                                    className="bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center"
+                                    style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                                >
+                                    Try the Cheat Code for Free
+                                </motion.a>
+                                {/* No Credit Card Required Animation - centered below button */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.5 }}
+                                    className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-sm justify-center"
+                                    style={{ backgroundColor: 'rgba(3, 40, 89, 0.45)' }}
+                                >
+                                    <motion.div
+                                        animate={{ 
+                                            scale: [1, 1.15, 1],
+                                            rotate: [0, 5, -5, 0]
+                                        }}
+                                        transition={{ 
+                                            duration: 1.5, 
+                                            repeat: Infinity, 
+                                            ease: "easeInOut",
+                                            times: [0, 0.5, 0.75, 1]
+                                        }}
+                                        className="text-green-400 text-base font-normal"
+                                    >
+                                        ✓
+                                    </motion.div>
+                                    <motion.p
+                                        animate={{ 
+                                            opacity: [0.6, 1, 0.6],
+                                            x: [0, 2, 0]
+                                        }}
+                                        transition={{ 
+                                            duration: 2, 
+                                            repeat: Infinity, 
+                                            ease: "easeInOut",
+                                            times: [0, 0.5, 1]
+                                        }}
+                                        className="text-white text-xs font-normal"
+                                    >
+                                        No credit card required
+                                    </motion.p>
+                                </motion.div>
+                            </div>
+                        </div>
                     </div>
 
                 </section>
 
                 {/* Main Content Area (White Background) */}
-                <main className="flex flex-col items-center justify-start w-full px-2 sm:px-4">
+                <main className="flex flex-col items-center justify-start w-full px-2 sm:px-4 mt-13">
                     {/* Loved by Students At - visible before scroll */}
-                    <div className="text-center text-4xl font-extrabold text-gray-900 mt-12 mb-2 tracking-tight drop-shadow-lg">
+                    <div className="text-center text-4xl font-extrabold text-gray-900 mt-10 mb-5 tracking-tight drop-shadow-lg">
                         Loved by students at
                     </div>
                     <section className="w-full max-w-5xl mx-auto mb-24 bg-white py-4 rounded-2xl px-2 sm:px-6">
@@ -304,7 +329,7 @@ export default function Home() {
                               className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
                               style={{ fontFamily: 'Geist, sans-serif' }}
                           >
-                              The world is unfair and grades get you shortlists and admits. Overcome this hurdle now with Kplor
+                              The world is unfair and grades get you shortlists and admits
                           </h2>
                           <motion.a
                               href="https://live.kplor.kplor.com"
@@ -314,7 +339,7 @@ export default function Home() {
                               className="block w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto bg-[#00FFFF] text-[#032859] font-bold py-4 px-4 sm:px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center overflow-hidden"
                               style={{boxShadow: `0 0 8px ${neonBlue}`}}
                           >
-                              Hack your Grades with Kplor Now!
+                              Hack this system now with Kplor!
                           </motion.a>
                         </div>
                       </section>
@@ -400,7 +425,7 @@ function FeatureSection({ feature }: { feature: Feature }) {
                     <motion.img
                         src={feature.image}
                         alt={feature.title}
-                        className="w-48 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
+                        className="w-64 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
                     />
                 </div>
                 
@@ -427,7 +452,7 @@ function FeatureSection({ feature }: { feature: Feature }) {
                     <motion.img
                         src={feature.image}
                         alt={feature.title}
-                        className="w-48 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
+                        className="w-64 object-contain rounded-xl border border-white/20 bg-white/10 cursor-pointer" // Reduced image size
                     />
                 </div>
             )}
