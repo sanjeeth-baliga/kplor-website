@@ -191,7 +191,7 @@ export default function Home() {
                             <div className="w-full mt-7">
                                 <h2 className="text-xl sm:text-3xl font-bold text-[#00FFFF] text-center md:text-left mb-1">Add Your Course 👇</h2>
                             </div>
-                            <div className="relative z-10 w-full h-[320px] sm:h-[320px] md:h-[320px]" style={{overflow: 'hidden'}}>
+                            <div className="relative z-10 w-full h-[290px] sm:h-[290px] md:h-[290px]" style={{overflow: 'hidden'}}>
                                 <div className="rounded-2xl shadow-2xl border-4 border-white/30 overflow-hidden bg-white/80 relative w-full h-full">
                                     <img
                                         src="/Hack_Machine.gif"
