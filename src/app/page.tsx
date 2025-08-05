@@ -204,7 +204,7 @@ export default function Home() {
                                     />
                                     {/* Clickable overlay */}
                                     <a
-                                        href="https://machine-beta-three.vercel.app/"
+                                        href="https://dashboard.kplor.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="absolute inset-0 z-20"
