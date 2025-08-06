@@ -27,6 +27,22 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                {/* Load gtag.js from Google */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-7PK6EJB9NX"
+                    strategy="afterInteractive"
+                />
+                {/* Initialize gtag */}
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', 'G-7PK6EJB9NX');
+                    `}
+                </Script>
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
@@ -40,13 +56,7 @@ export default function RootLayout({
 
             <Footer />
             </body>
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'G-7PK6EJB9NX');`}
-            </Script>
+            
         </html>
     );
 }
