@@ -329,7 +329,7 @@ export default function Home() {
                               className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
                               style={{ fontFamily: 'Geist, sans-serif' }}
                           >
-                              You won't get grades unless you understand what you learn
+                              You won&apos;t get grades unless you understand what you learn
                           </h2>
                           <motion.a
                               href="https://live.kplor.kplor.com"
