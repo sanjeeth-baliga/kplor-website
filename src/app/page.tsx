@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 //import { SaturnRings } from './saturn_rings';
 // Removed: import NeuronGridBackground from "./NeuronGridBackground";
 
-const animatedWords = ["aspirants", "hustlers", "toppers", "procrastinators"];
+const animatedWords = ["aspirants", "hustlers", "toppers"];
 //const qualityWords = ["guide", "teach", "practice", "declutter"];
 
 type Feature = {
@@ -153,7 +153,7 @@ export default function Home() {
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 className="text-3xl sm:text-6xl md:text-8xl font-extrabold text-left mb-4 sm:mb-6 drop-shadow-lg text-white"
                             >
-                                Hack Your Grades
+                                Study Smarter and Effortlessly
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -172,7 +172,7 @@ export default function Home() {
                                 >
                                     {animatedWords[currentWordIndex]}
                                 </motion.span><br/>
-                                A sidekick to effortlessly guide and save last minute exam panic
+                                A sidekick to guide you effortlessly as you learn 
                             </motion.p>
                             {/* YouTube Video - moved up */}
                             <div className="relative z-10 w-full max-w-[400px] h-[160px] sm:h-[200px] md:h-[220px] mx-auto mt-10">
@@ -225,7 +225,7 @@ export default function Home() {
                                     className="bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center"
                                     style={{boxShadow: `0 0 8px ${neonBlue}`}}
                                 >
-                                    Try the Cheat Code for Free
+                                    Try the beta for Free
                                 </motion.a>
                                 {/* No Credit Card Required Animation - centered below button */}
                                 <motion.div
@@ -290,7 +290,7 @@ export default function Home() {
                       }}
                     >
                       <div className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12 mt-6">
-                          What makes Kplor a Grade Hacking Machine
+                          How does Kplor redefine your Learning Experience ?
                       </div>
 
                       {/* Feature Sections in translucent cards */}
@@ -329,7 +329,7 @@ export default function Home() {
                               className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
                               style={{ fontFamily: 'Geist, sans-serif' }}
                           >
-                              The world is unfair and grades get you shortlists and admits
+                              You won't get grades unless you understand what you learn
                           </h2>
                           <motion.a
                               href="https://live.kplor.kplor.com"
@@ -339,7 +339,7 @@ export default function Home() {
                               className="block w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto bg-[#00FFFF] text-[#032859] font-bold py-4 px-4 sm:px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center overflow-hidden"
                               style={{boxShadow: `0 0 8px ${neonBlue}`}}
                           >
-                              Hack this system now with Kplor!
+                              Master this technique now with Kplor!
                           </motion.a>
                         </div>
                       </section>
