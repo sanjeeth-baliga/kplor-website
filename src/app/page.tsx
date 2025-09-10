@@ -205,9 +205,9 @@ export default function Home() {
 </div>
                         
                         {/* Two Buttons - Centered with equal width */}
-                        <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center mt-6">
+                        <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center mt-12">
                             <motion.a
-                                href="https://your-google-calendar-link-here"
+                                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2mPZpVSaMqZW8ltDDcJvcmm8JxnNs8eut6ZE_akpJJ5uehlz4ev8mWkg5HzZRUxUKxy-8ugk_d"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
@@ -218,7 +218,7 @@ export default function Home() {
                             </motion.a>
                             
                             <motion.a
-                                href="https://your-sample-videos-link-here"
+                                href="https://drive.google.com/drive/folders/17_TfNvFvngVBKr8sLBKw1fEkUSZTY4wR"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
@@ -322,7 +322,7 @@ export default function Home() {
                       }}
                     >
                       <div className="text-center text-4xl font-bold text-gray-800 drop-shadow-lg mb-12 mt-6">
-                          How does Kplor redefine your Learning Experience ?
+                          How does Kplor Bring Learning Content to Life?
                       </div>
 
                       {/* Feature Sections in translucent cards */}
@@ -350,7 +350,7 @@ export default function Home() {
                               Free pilots available to get you started
                           </h2>
                           <motion.a
-                              href="https://live.kplor.kplor.com"
+                              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2mPZpVSaMqZW8ltDDcJvcmm8JxnNs8eut6ZE_akpJJ5uehlz4ev8mWkg5HzZRUxUKxy-8ugk_d"
                               target="_blank"
                               rel="noopener noreferrer"
                               whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
