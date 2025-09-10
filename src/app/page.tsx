@@ -2,14 +2,15 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import Carousel from "./Carousel";
+// Add this import at the top
+import GifCarousel from "./GifCarousel";
 import './pulse.css';
 import { useState, useEffect, useRef } from 'react';
 //import { FaLinkedin, FaEnvelope } from 'react-icons/fa'; // Import icons
 //import {  FaXTwitter, FaYoutube, FaInstagram } from 'react-icons/fa6';
 //import { SaturnRings } from './saturn_rings';
 // Removed: import NeuronGridBackground from "./NeuronGridBackground";
-
-const animatedWords = ["aspirants", "hustlers", "toppers"];
+const animatedWords = ["Videos", "AudioBooks", "PPTs", "Assessments"];
 //const qualityWords = ["guide", "teach", "practice", "declutter"];
 
 type Feature = {
@@ -21,40 +22,34 @@ type Feature = {
 
 const features: Feature[] = [
     {
-        title: "Study What Matters, When it Matters",
-        description: "Kplor is that studious friend who knows what to focus on and in what order. Learn and practice what your examiners want on the answer sheet.",
-        image: "/learning_path.gif",
+        title: "Topic Explainers",
+        description: "Unlock hidden value in notes, docs, and transcripts by turning them into explainer videos that simplify complex ideas.",
+        image: "/f1.png",
         imagePlacement: "right", // "left" or "right"
     },
     {
-        title: "Liberate yourself from comparison or judgement",
-        description: "Kplor won't judge your pace, your questions or your panic. Whether you need a slower pace, a confidence boost, or a moment to breathe, it's got your back",
-        image: "/study_mate.png",
+        title: "Speed and Scale",
+        description: "Produce 100+ hours of content per day even from raw, unorganized material",
+        image: "/f2.png",
         imagePlacement: "left",
     },
     {
-        title: "Your questions answered before you forget them",
-        description: "No more waiting on professors or chasing replies. With instant doubt solving and smarter assessments, Kplor answers your questions before they fade or get buried",
-        image: "/doubt_assessment.gif",
+        title: "Contextual Learning",
+        description: "Deliver relevant videos for learners tailored to your context and knowledge base",
+        image: "/f3.png",
         imagePlacement: "right",
     },
     {
-        title: "So Bingeworthy, you'll Forget you are studying",
-        description: "With vibrant videos and dynamic explanations, even the toughest topics feel alive and addictive with Kplor",
-        image: "/Engaging_video.gif",
+        title: "Engaging Visuals",
+        description: "crisp graphics, animations, and synchronized voiceovers that make learning memorable",
+        image: "/f4.png",
         imagePlacement: "left",
     },
     {
-        title: "Get rescued when caught in doom scrolling",
-        description: "Kplor sees when you're zoning out, scrolling away, or just done. It nudges you back and keeps your study streak alive",
-        image: "/attention.png",
+        title: "Data safeguards",
+        description: "Your data stays yours. We enforce strict privacy, security, and consent controls with zero third-party sharing.",
+        image: "/f5.png",
         imagePlacement: "right",
-    },
-    {
-        title: "Your Data. Your Space. No Exceptions",
-        description: "Kplor protects your privacy like a fortress. No raw visuals stored. No voice stored. No data shared",
-        image: "/safe_data.png",
-        imagePlacement: "left",
     }
 
 ];
@@ -132,155 +127,198 @@ export default function Home() {
     }, []);
 
     return (
-        <>
-            <div className="overflow-x-hidden">
-                {/* Hero Section with Gradient Background */}
-                <section
-                    className="relative w-full overflow-hidden px-2 sm:px-4 pt-6 sm:pt-8 min-h-[70vh] flex flex-col items-center justify-start"
-                    style={{
-                        // Changed gradient to be more gradual and include a light blue tint
-                        background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)',
-                        color: '#032859' // Changed text color to dark blue for better visibility as background lightens
-                    }}
-                >
-                    {/* Content of the Hero Section */}
-                    <div className="flex flex-col md:flex-row items-start justify-center w-full max-w-7xl mx-auto z-10"> {/* Changed items-center to items-start for alignment */}
-                        {/* Title and One-Liner */}
-                        <div className="md:w-6/12 p-4 sm:p-8 flex flex-col justify-start items-center">
+    <>
+        <div className="overflow-x-hidden">
+            {/* Hero Section with Gradient Background */}
+            <section
+                className="relative w-full overflow-hidden px-2 sm:px-4 pt-6 sm:pt-8 min-h-[70vh] flex flex-col items-center justify-start"
+                style={{
+                    background: 'linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)',
+                    color: '#032859'
+                }}
+            >
+                {/* Content of the Hero Section - Centered */}
+                <div className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto z-10">
+                    {/* Title and One-Liner - Centered with constrained width */}
+                    <div className="w-full p-4 sm:p-8 flex flex-col justify-center items-center text-center">
+                        <div className="w-full max-w-4xl">
                             <motion.h1
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
-                                className="text-3xl sm:text-6xl md:text-8xl font-extrabold text-left mb-4 sm:mb-6 drop-shadow-lg text-white"
+                                className="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-4 sm:mb-6 drop-shadow-lg text-white"
                             >
-                                Study Smarter and Effortlessly
+                                Instantly Convert Text into Captivating
                             </motion.h1>
-                            <motion.p
+                            <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                                className="text-base sm:text-lg md:text-2xl text-left max-w-2xl mb-4 sm:mb-6 text-white"
+                                className="text-2xl sm:text-4xl md:text-6xl mb-4 sm:mb-6 text-white"
                             >
-                                Built for the{" "}
-                                <motion.span
-                                    key={currentWordIndex}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                                    className="font-bold text-[#00FFFF]"
-                                >
-                                    {animatedWords[currentWordIndex]}
-                                </motion.span><br/>
-                                A sidekick to guide you effortlessly as you learn 
+                                <span className="inline-block align-bottom min-w-[220px] sm:min-w-[320px] md:min-w-[450px] h-12 sm:h-18 md:h-24">
+                                    <motion.span
+                                        key={currentWordIndex}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                                        className="font-bold text-[#00FFFF] inline-block text-center w-full text-2xl sm:text-4xl md:text-6xl"
+                                    >
+                                        {animatedWords[currentWordIndex]}
+                                    </motion.span>
+                                </span>
+                            </motion.div>
+                            
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                                className="text-lg sm:text-xl md:text-2xl text-white mb-6"
+                            >
+                                Effortlessly turn manuals, courses, and study material into dynamic explainer videos
                             </motion.p>
-                            {/* YouTube Video - moved up */}
-                            <div className="relative z-10 w-full max-w-[400px] h-[160px] sm:h-[200px] md:h-[220px] mx-auto mt-10">
-                                <iframe
-                                    src="https://www.youtube.com/embed/ibTHRYUtktE"
-                                    title="YouTube video player"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen
-                                    className="w-full h-full rounded-2xl shadow-2xl border-4 border-white/30"
-                                ></iframe>
-                            </div>
                         </div>
-                        {/* Website Preview on full RHS with heading */}
-                        <div className="md:w-5/12 p-2 sm:p-4 flex flex-col items-center md:items-end justify-start w-full gap-5" style={{overflow:'visible', minHeight: '320px'}}>
-                            <div className="w-full mt-7">
-                                <h2 className="text-xl sm:text-3xl font-bold text-[#00FFFF] text-center md:text-left mb-1">Request your course here 👇</h2>
-                            </div>
-                            <div className="relative z-10 w-full h-[290px] sm:h-[290px] md:h-[290px]" style={{overflow: 'hidden'}}>
-                                <div className="rounded-2xl shadow-2xl border-4 border-white/30 overflow-hidden bg-white/80 relative w-full h-full">
-                                    <img
-                                        src="/Hack_Machine.gif"
-                                        alt="Hack Machine Preview"
-                                        className="w-full h-full object-center rounded-xl"
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                        }}
-                                    />
-                                    {/* Clickable overlay */}
-                                    <a
-                                        href="https://dashboard.kplor.com/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="absolute inset-0 z-20"
-                                        style={{ cursor: 'pointer' }}
-                                        aria-label="Open course request form"
-                                    >
-                                        <span className="sr-only">Open course request form</span>
-                                    </a>
-                                </div>
-                            </div>
-                            {/* Try Now Button and Label - moved below GIF */}
-                            <div className="flex flex-col items-center w-full mt-8">
-                                <motion.a
-                                    href="https://live.kplor.kplor.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
-                                    className="bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center"
-                                    style={{boxShadow: `0 0 8px ${neonBlue}`}}
-                                >
-                                    Try the beta for Free
-                                </motion.a>
-                                {/* No Credit Card Required Animation - centered below button */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.8, delay: 0.5 }}
-                                    className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 border border-white/20 shadow-sm justify-center"
-                                    style={{ backgroundColor: 'rgba(3, 40, 89, 0.45)' }}
-                                >
-                                    <motion.div
-                                        animate={{ 
-                                            scale: [1, 1.15, 1],
-                                            rotate: [0, 5, -5, 0]
-                                        }}
-                                        transition={{ 
-                                            duration: 1.5, 
-                                            repeat: Infinity, 
-                                            ease: "easeInOut",
-                                            times: [0, 0.5, 0.75, 1]
-                                        }}
-                                        className="text-green-400 text-base font-normal"
-                                    >
-                                        ✓
-                                    </motion.div>
-                                    <motion.p
-                                        animate={{ 
-                                            opacity: [0.6, 1, 0.6],
-                                            x: [0, 2, 0]
-                                        }}
-                                        transition={{ 
-                                            duration: 2, 
-                                            repeat: Infinity, 
-                                            ease: "easeInOut",
-                                            times: [0, 0.5, 1]
-                                        }}
-                                        className="text-white text-xs font-normal"
-                                    >
-                                        No credit card required
-                                    </motion.p>
-                                </motion.div>
-                            </div>
+                        
+                        {/* Three Feature Cards - Centered */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mt-4 mb-8">
+    {/* Card 1: Affordable at Scale */}
+    <motion.div 
+        className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-xl p-4 text-center border border-white/30 shadow-lg"
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-xl">Affordable at Scale</h3>
+    </motion.div>
+    
+    {/* Card 2: Lightning-Fast Creation */}
+    <motion.div 
+        className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-xl p-4 text-center border border-white/30 shadow-lg"
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-xl">Lightning-Fast Creation</h3>
+    </motion.div>
+    
+    {/* Card 3: Tailored for All */}
+    <motion.div 
+        className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-xl p-4 text-center border border-white/30 shadow-lg"
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-xl">Tailored for All</h3>
+    </motion.div>
+</div>
+                        
+                        {/* Two Buttons - Centered with equal width */}
+                        <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center mt-6">
+                            <motion.a
+                                href="https://your-google-calendar-link-here"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                                className="bg-[#00FFFF] text-[#032859] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center block flex-1"
+                                style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                            >
+                                Book a Demo
+                            </motion.a>
+                            
+                            <motion.a
+                                href="https://your-sample-videos-link-here"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
+                                className="bg-[#00FFFF] text-[#032852] font-bold py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center block flex-1"
+                                style={{boxShadow: `0 0 8px ${neonBlue}`}}
+                            >
+                                Watch Sample Videos
+                            </motion.a>
                         </div>
                     </div>
-
-                </section>
+                </div>
+            </section>
+        
 
                 {/* Main Content Area (White Background) */}
                 <main className="flex flex-col items-center justify-start w-full px-2 sm:px-4 mt-13">
                     {/* Loved by Students At - visible before scroll */}
-                    <div className="text-center text-4xl font-extrabold text-gray-900 mt-10 mb-5 tracking-tight drop-shadow-lg">
-                        Loved by students at
-                    </div>
-                    <section className="w-full max-w-5xl mx-auto mb-24 bg-white py-4 rounded-2xl px-2 sm:px-6">
-                        <Carousel/>
-                    </section>
+                    
+
+{/* Trusted by Leaders in Learning Section */}
+<div className="text-center text-4xl font-extrabold text-gray-900 mt-0 mb-10 tracking-tight drop-shadow-lg">
+    Trusted by Leaders in Learning
+</div>
+
+{/* Cards Grid - 3 columns, 2 rows */}
+<div className="w-full max-w-6xl mx-auto mb-24 grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+    {/* Card 1: 1000+ hours of content */}
+    <motion.div 
+        className="rounded-2xl p-6 text-center border border-white/30 shadow-xl"
+        style={{ backgroundColor: '#032859' }}
+        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 255, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-2xl mb-3">2,000+ hours</h3>
+        <p className="text-white text-lg">of engaging content created</p>
+    </motion.div>
+    
+    {/* Card 2: 10000+ multimodal videos delivered */}
+    <motion.div 
+        className="rounded-2xl p-6 text-center border border-white/30 shadow-xl"
+        style={{ backgroundColor: '#032859' }}
+        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 255, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-2xl mb-3">10,000+</h3>
+        <p className="text-white text-lg">multimodal videos delivered</p>
+    </motion.div>
+    
+    {/* Card 3: Loved by 20+ colleges */}
+    <motion.div 
+        className="rounded-2xl p-6 text-center border border-white/30 shadow-xl"
+        style={{ backgroundColor: '#032859' }}
+        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 255, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-2xl mb-3">20+ Colleges</h3>
+        <p className="text-white text-lg">including IITs and IIMs</p>
+    </motion.div>
+    
+    {/* Card 4: Partnered with Corporate L&Ds */}
+    <motion.div 
+        className="rounded-2xl p-6 text-center border border-white/30 shadow-xl"
+        style={{ backgroundColor: '#032859' }}
+        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 255, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-2xl mb-3">Corporate L&Ds</h3>
+        <p className="text-white text-lg">Partnerships established</p>
+    </motion.div>
+    
+    {/* Card 5: Integrated into multiple LMSs */}
+    <motion.div 
+        className="rounded-2xl p-6 text-center border border-white/30 shadow-xl"
+        style={{ backgroundColor: '#032859' }}
+        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 255, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-2xl mb-3">LMS Integration</h3>
+        <p className="text-white text-lg">Seamlessly integrated into multiple platforms</p>
+    </motion.div>
+    
+    {/* Card 6: Deployed in multiple domains */}
+    <motion.div 
+        className="rounded-2xl p-6 text-center border border-white/30 shadow-xl"
+        style={{ backgroundColor: '#032859' }}
+        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 255, 0.3)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        <h3 className="font-bold text-white text-2xl mb-3">Multiple Domains</h3>
+        <p className="text-white text-lg">STEM, Business, Finance, Coding and K-12</p>
+    </motion.div>
+</div>
+
+{/* Remove the two panels that were below the trusted section since we've incorporated that content into the cards */}
                     {/* Content after carousel with radial gradient background */}
                     <div
                       id="features-section"
@@ -305,20 +343,6 @@ export default function Home() {
                         ))}
                       </div>
 
-                      {/* FAQ Section in translucent card */}
-                      <section className="w-full max-w-4xl mx-auto my-16 px-2 sm:px-6 lg:px-0">
-                        {/*<div className="backdrop-blur-md bg-white/20 rounded-2xl shadow-xl p-8">*/}
-                          <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg mb-12">
-                              FAQs
-                          </h2>
-                          <div className="space-y-6">
-                              {faqs.map((faq, index) => (
-                                  <FAQItem key={index} question={faq.question} answer={faq.answer} />
-                              ))}
-                          </div>
-                        {/*</div>*/}
-                      </section>
-
                       {/* Final Call to Action - Now in a translucent card */}
                       <section className="w-full text-center py-16 px-2 sm:px-6 lg:px-0">
                         <div 
@@ -329,7 +353,7 @@ export default function Home() {
                               className="text-3xl sm:text-4xl font-extrabold text-white mb-12 drop-shadow-lg leading-tight"
                               style={{ fontFamily: 'Geist, sans-serif' }}
                           >
-                              You won&apos;t get grades unless you understand what you learn
+                              Free pilots available to get you started
                           </h2>
                           <motion.a
                               href="https://live.kplor.kplor.com"
@@ -339,7 +363,7 @@ export default function Home() {
                               className="block w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto bg-[#00FFFF] text-[#032859] font-bold py-4 px-4 sm:px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-lg sm:text-xl whitespace-normal text-center overflow-hidden"
                               style={{boxShadow: `0 0 8px ${neonBlue}`}}
                           >
-                              Master this technique now with Kplor!
+                              Book a Demo
                           </motion.a>
                         </div>
                       </section>
