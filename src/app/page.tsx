@@ -1,9 +1,9 @@
 // page.tsx
 "use client";
 import { motion, useInView } from "framer-motion";
-import Carousel from "./Carousel";
+//import Carousel from "./Carousel";
 // Add this import at the top
-import GifCarousel from "./GifCarousel";
+//import GifCarousel from "./GifCarousel";
 import './pulse.css';
 import { useState, useEffect, useRef } from 'react';
 //import { FaLinkedin, FaEnvelope } from 'react-icons/fa'; // Import icons
@@ -41,7 +41,7 @@ const features: Feature[] = [
     },
     {
         title: "Engaging Visuals",
-        description: "crisp graphics, animations, and synchronized voiceovers that make learning memorable",
+        description: "Crisp graphics, animations, and synchronized voiceovers that make learning memorable",
         image: "/f4.png",
         imagePlacement: "left",
     },
@@ -56,12 +56,13 @@ const features: Feature[] = [
 
 const neonBlue = '#00FFFF';
 
-type FAQ = {
+/*type FAQ = {
     question: string;
     answer: string;
-};
+};*/
 
 // Dummy FAQ data
+/*
 const faqs: FAQ[] = [
     {
         question: "Which courses can I learn from Kplor?",
@@ -112,7 +113,7 @@ const faqs: FAQ[] = [
         answer: "Just write to our founder at mukil@kplor.com and we will reach out to you."
     }
 
-];
+];*/
 
 
 export default function Home() {
@@ -148,27 +149,20 @@ export default function Home() {
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 className="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-4 sm:mb-6 drop-shadow-lg text-white"
                             >
-                                Instantly Convert Text into Captivating
-                            </motion.h1>
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                                className="text-2xl sm:text-4xl md:text-6xl mb-4 sm:mb-6 text-white"
-                            >
-                                <span className="inline-block align-bottom min-w-[220px] sm:min-w-[320px] md:min-w-[450px] h-12 sm:h-18 md:h-24">
+                                Instantly Convert Text into Captivating{" "}
+                                <span className="inline-block align-baseline min-w-[220px] sm:min-w-[320px] md:min-w-[450px] h-12 sm:h-16 md:h-24">
                                     <motion.span
                                         key={currentWordIndex}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                                        className="font-bold text-[#00FFFF] inline-block text-center w-full text-2xl sm:text-4xl md:text-6xl"
+                                        className="font-bold text-[#00FFFF] inline-block text-left w-full"
                                     >
                                         {animatedWords[currentWordIndex]}
                                     </motion.span>
                                 </span>
-                            </motion.div>
+                            </motion.h1>
                             
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -376,6 +370,7 @@ export default function Home() {
 }
 
 // Separate component for FAQ Item
+/*
 function FAQItem({ question, answer }: FAQ) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -395,7 +390,7 @@ function FAQItem({ question, answer }: FAQ) {
                     transition={{ duration: 0.3 }}
                     className="ml-4 text-2xl"
                 >
-                    ▼ {/* Unicode for a down arrow */}
+                    ▼
                 </motion.span>
             </button>
             <motion.div
@@ -408,7 +403,7 @@ function FAQItem({ question, answer }: FAQ) {
             </motion.div>
         </div>
     );
-}
+}*/
 
 
 function FeatureSection({ feature }: { feature: Feature }) {
