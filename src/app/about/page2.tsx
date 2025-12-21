@@ -22,14 +22,6 @@ const teamMembers = [
         linkedin: "https://www.linkedin.com/in/sanjeethbaliga/",
         email: "jane.smith@example.com",
     },
-    {
-        name: "Nitesh",
-        role: "Founding Team-AI Engineer",
-        oneLiner: "Crafting engaging and adaptive learning experiences.",
-        photo: "/nitesh.jpg",
-        linkedin: "https://www.linkedin.com/in/nitesh-wadhavinde/",
-        email: "alice.johnson@example.com",
-    },
 ];
 
 const neonBlue = '#00FFFF'; // Reusing the neonBlue color from page.tsx
