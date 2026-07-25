@@ -218,7 +218,7 @@ export default function Home() {
                             </motion.a>
                             
                             <motion.a
-                                href="https://drive.google.com/drive/folders/17_TfNvFvngVBKr8sLBKw1fEkUSZTY4wR"
+                                href="/videos"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
