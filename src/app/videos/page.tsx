@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay, FaTimes } from "react-icons/fa";
 import { videoCategories, VideoItem } from "./videoData";
 
-const neonBlue = "#00FFFF";
 
 export default function VideosPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
