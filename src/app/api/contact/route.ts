@@ -246,9 +246,26 @@ export async function POST(request: Request) {
           body: JSON.stringify(leadRecord),
           redirect: "follow",
         });
-        const ok = r.ok || r.status === 302;
+        const respText = await r.text();
+        const trimmed = respText.trim();
+        const isHtmlOrLogin =
+          trimmed.includes("accounts.google.com") ||
+          /^<!doctype|^<html/i.test(trimmed);
+
+        let parsedStatus: string | undefined;
+        try {
+          parsedStatus = JSON.parse(trimmed)?.status;
+        } catch {
+          parsedStatus = undefined;
+        }
+
+        const ok = r.ok && !isHtmlOrLogin && parsedStatus === "ok";
         results.push(ok);
-        if (!ok) console.error("Google Script responded with", r.status);
+        if (!ok) {
+          console.error(
+            `Google Script returned HTML/error (check 'Who has access: Anyone' in Apps Script deployment): status=${r.status}, body=${trimmed.slice(0, 200)}`
+          );
+        }
       } catch (err) {
         results.push(false);
         console.error("Google Script error:", err);
