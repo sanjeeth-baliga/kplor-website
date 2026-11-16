@@ -1,5 +1,12 @@
 // src/app/privacy-policy/page.tsx
 import React from 'react';
+import { pageMetadata } from '../../lib/seo';
+
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
+  description: 'How Kplor, operated by MindShift Labs Private Limited, collects, uses and protects personal data.',
+  path: '/privacy-policy',
+});
 
 export default function PrivacyPolicy() {
   return (
@@ -29,7 +36,7 @@ export default function PrivacyPolicy() {
             <h2>Personal Information We Collect</h2>
             <p>“Personal Information” shall mean the information which identifies a User i.e., first and last name, identification number, email address, age, gender, location, photograph and/or phone number provided at the time of registration or any time thereafter on the Platform.</p>
             <p>We request you to not provide Kplor with any Personal Information unless specifically requested by us. In the event you share with Kplor any Personal Information without us having specifically requested for the same, then we bear no liability in respect of such Personal Information provided by you.</p>
-            <p>We only collect information about you if we have a reason to do so — for example, to provide our Services on the Platform, to communicate with you, or to make our Services better.</p>
+            <p>We only collect information about you if we have a reason to do so, for example, to provide our Services on the Platform, to communicate with you, or to make our Services better.</p>
 
             <h3>Information We Collect From You:</h3>
             <p><strong>Basic account information:</strong> In order to access certain features of the Platform, you will need to create an account and register with us. We ask for basic information which may include your name, an email address, your university/college name, and password, along with a username and phone/mobile number.</p>

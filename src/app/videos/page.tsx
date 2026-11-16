@@ -1,263 +1,77 @@
 // src/app/videos/page.tsx
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaPlay, FaTimes } from "react-icons/fa";
-import { videoCategories, VideoItem } from "./videoData";
-
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaPhoneAlt, FaCalendarAlt } from "react-icons/fa";
+import { DEMO_URL } from "../../components/home/shared";
+import { CallbackModal } from "../../components/common/CallbackModal";
 
 export default function VideosPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
-
-  const visibleCategories = useMemo(() => {
-    if (activeCategory === "all") return videoCategories;
-    return videoCategories.filter((c) => c.id === activeCategory);
-  }, [activeCategory]);
-
-  const closeModal = useCallback(() => setActiveVideo(null), []);
-
-  // Close modal on Escape key
-  useEffect(() => {
-    if (!activeVideo) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeModal();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [activeVideo, closeModal]);
+  const [callbackOpen, setCallbackOpen] = useState(false);
 
   return (
-    <div
-      className="min-h-screen text-white"
-      style={{
-        background:
-          "linear-gradient(to bottom right, rgb(40, 98, 173) 0%, rgb(9, 44, 91) 50%, #E0F2F7 85%, #FFFFFF 100%)",
-      }}
-    >
-      {/* Hero */}
-      <div className="pt-16 pb-10 px-4 sm:px-6 md:px-12 lg:px-24">
-        <div className="max-w-3xl mx-auto text-center">
+    <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-paper text-charcoal font-sans selection:bg-kplor-200">
+      {/* Top Banner / Hero */}
+      <section className="flex-1 flex flex-col justify-center items-center py-20 sm:py-28 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-24">
+        <div className="max-w-4xl mx-auto text-center w-full">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
+            transition={{ duration: 0.5 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-kplor-900 leading-tight"
           >
-            Sample Videos
+            All our client courseware is covered under strict NDA
           </motion.h1>
+
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-white/90"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-6 text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed"
           >
-            A look at how Kplor turns text and manuals into explainer videos —
-            organized by subject.
+            To protect our enterprise and institutional clients’ proprietary IP, course catalogues and corporate training modules are kept confidential.
           </motion.p>
-        </div>
-      </div>
 
-      {/* Category Tabs */}
-      <div className="px-4 sm:px-6 md:px-12 lg:px-24 mb-10">
-        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-3">
-          <CategoryTab
-            label="All"
-            active={activeCategory === "all"}
-            onClick={() => setActiveCategory("all")}
-          />
-          {videoCategories.map((cat) => (
-            <CategoryTab
-              key={cat.id}
-              label={cat.label}
-              active={activeCategory === cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Category Sections */}
-      <div className="px-4 sm:px-6 md:px-12 lg:px-24 pb-20">
-        <div className="max-w-6xl mx-auto space-y-16">
-          {visibleCategories.map((category) => (
-            <section key={category.id}>
-              <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-bold">
-                  {category.label}
-                </h2>
-                {category.description && (
-                  <p className="text-white/70 mt-1">{category.description}</p>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.videos.map((video, idx) => (
-                  <VideoCard
-                    key={video.id}
-                    video={video}
-                    index={idx}
-                    onPlay={() => setActiveVideo(video)}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal Player */}
-      <AnimatePresence>
-        {activeVideo && (
-          <VideoModal video={activeVideo} onClose={closeModal} />
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-function CategoryTab({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`px-5 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-200 border ${
-        active
-          ? "bg-[#00FFFF] text-[#032859] border-transparent shadow-md"
-          : "bg-white/10 text-white border-white/20 hover:bg-white/20"
-      }`}
-    >
-      {label}
-    </button>
-  );
-}
-
-function VideoCard({
-  video,
-  index,
-  onPlay,
-}: {
-  video: VideoItem;
-  index: number;
-  onPlay: () => void;
-}) {
-  const isReady = video.driveFileId !== "REPLACE_WITH_FILE_ID";
-
-  return (
-    <motion.button
-      type="button"
-      onClick={onPlay}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: Math.min(index * 0.08, 0.4) }}
-      whileHover={{ y: -4 }}
-      className="text-left bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl group focus:outline-none focus:ring-2 focus:ring-[#00FFFF]"
-      style={{ backgroundColor: "rgba(3, 40, 89, 0.65)" }}
-    >
-      {/* Thumbnail area */}
-      <div className="relative aspect-video bg-[#021c3d] flex items-center justify-center overflow-hidden">
-        {isReady ? (
-          <img
-            src={`https://drive.google.com/thumbnail?id=${video.driveFileId}&sz=w640`}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-200"
-            loading="lazy"
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a3a73] to-[#032859]" />
-        )}
-        <div className="relative z-10 w-14 h-14 rounded-full bg-[#00FFFF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
-          <FaPlay className="text-[#032859] ml-1" size={18} />
-        </div>
-        {video.durationLabel && (
-          <span className="absolute bottom-2 right-2 z-10 text-xs font-semibold bg-black/60 px-2 py-1 rounded">
-            {video.durationLabel}
-          </span>
-        )}
-      </div>
-
-      {/* Title */}
-      <div className="p-4">
-        <h3 className="font-semibold text-white leading-snug">
-          {video.title}
-        </h3>
-        {!isReady && (
-          <p className="text-xs text-white/50 mt-1">Coming soon</p>
-        )}
-      </div>
-    </motion.button>
-  );
-}
-
-function VideoModal({
-  video,
-  onClose,
-}: {
-  video: VideoItem;
-  onClose: () => void;
-}) {
-  const isReady = video.driveFileId !== "REPLACE_WITH_FILE_ID";
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl"
-        style={{ backgroundColor: "#032859" }}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-          <h3 className="font-semibold text-white truncate pr-4">
-            {video.title}
-          </h3>
-          <button
-            onClick={onClose}
-            aria-label="Close video"
-            className="text-white/70 hover:text-white transition-colors flex-shrink-0"
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="mt-3 text-base sm:text-lg font-medium text-kplor-800 max-w-2xl mx-auto leading-relaxed"
           >
-            <FaTimes size={20} />
-          </button>
-        </div>
+            Book a discovery call with our team and we will gladly create a <span className="text-sky-600 font-semibold">free custom sample video</span> using your own curriculum, slides, or brand guidelines.
+          </motion.p>
 
-        {/* Player */}
-        <div className="aspect-video bg-black">
-          {isReady ? (
-            <iframe
-              src={`https://drive.google.com/file/d/${video.driveFileId}/preview`}
-              className="w-full h-full"
-              allow="autoplay"
-              allowFullScreen
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center text-white/60 text-center px-6">
-              This video isn&apos;t linked up yet. Check back soon!
-            </div>
-          )}
+          {/* Action CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <button
+              type="button"
+              onClick={() => setCallbackOpen(true)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-kplor-900 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-kplor-700 hover:scale-105"
+            >
+              <FaPhoneAlt className="text-xs text-[#00FFFF]" />
+              Request a Free Sample
+            </button>
+            <a
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-kplor-900/30 bg-white px-7 py-3.5 text-base font-semibold text-kplor-900 transition-all hover:bg-kplor-50 shadow-xs hover:border-kplor-900"
+            >
+              <FaCalendarAlt className="text-xs text-kplor-600" />
+              Book a Demo
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
-    </motion.div>
+      </section>
+
+      {/* Callback Request Modal */}
+      <CallbackModal isOpen={callbackOpen} onClose={() => setCallbackOpen(false)} />
+    </div>
   );
 }
