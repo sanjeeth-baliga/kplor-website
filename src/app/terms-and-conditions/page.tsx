@@ -1,5 +1,12 @@
 // src/app/terms-and-conditions/page.tsx
 import React from 'react';
+import { pageMetadata } from '../../lib/seo';
+
+export const metadata = pageMetadata({
+  title: 'Terms & Conditions',
+  description: 'Terms and conditions for using the Kplor website and services, operated by MindShift Labs Private Limited.',
+  path: '/terms-and-conditions',
+});
 
 export default function TermsAndConditions() {
   return (

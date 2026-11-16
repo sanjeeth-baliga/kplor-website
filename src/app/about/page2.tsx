@@ -93,7 +93,9 @@ export default function AboutPage() {
                     Want to join our mission?
                 </h2>
                 <motion.a
-                    href="/careers" // Link to your careers page or an external application link
+                    href="https://www.linkedin.com/company/kplor/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{scale: 1.08, boxShadow: `0 0 15px ${neonBlue}, 0 0 30px ${neonBlue}` }}
                     className=" bg-[#00FFFF] text-[#032859] font-bold py-4 px-10 rounded-full shadow-md hover:shadow-xl transition-all duration-200 text-xl"
                     style={{boxShadow: `0 0 8px ${neonBlue}`}}

@@ -12,6 +12,7 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,7 +36,10 @@ export default function ContactPage() {
         body: JSON.stringify(formData)
       });
 
-      if (response.ok) {
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        setSubmitError(data?.message || 'Something went wrong. Please try again or email info@kplor.com.');
+      } else {
         setIsSubmitted(true);
         setFormData({
           name: '',
@@ -47,6 +51,7 @@ export default function ContactPage() {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+      setSubmitError('Network error. Please try again or email info@kplor.com.');
     } finally {
       setIsSubmitting(false);
     }
@@ -206,6 +211,10 @@ export default function ContactPage() {
               {isSubmitting ? 'Submitting...' : 'Submit'}
             </motion.button>
 
+            {submitError && (
+              <p className="text-center text-red-300 text-sm font-medium">{submitError}</p>
+            )}
+
             {/* Success Message */}
             {isSubmitted && (
               <motion.div
@@ -218,6 +227,20 @@ export default function ContactPage() {
             )}
           </form>
         </motion.div>
+
+        {/* Company details (address taken from the Privacy Policy; edit here if it changes) */}
+        <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl mx-auto mt-8 text-center text-white/90 text-sm sm:text-base">
+          <p className="font-semibold">MindShift Labs Private Limited (Kplor)</p>
+          <address className="not-italic mt-1">
+            #413, 14th C Cross, Pai Layout, Bengaluru - 560016, India
+          </address>
+          <p className="mt-1">
+            Email:{' '}
+            <a href="mailto:info@kplor.com" className="underline hover:text-[#00FFFF]">
+              info@kplor.com
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

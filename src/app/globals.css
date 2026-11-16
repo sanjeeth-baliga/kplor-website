@@ -3,7 +3,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #032859;  /* Changed foreground color */
+  --foreground: #032859;
 }
 
 @theme inline {
@@ -11,19 +11,82 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+
+  /* Neutrals (≈60%) */
+  --color-paper: #fafaf8;
+  --color-mist: #f1f2f0;
+  --color-line: #e3e5e2;
+  --color-slate: #5b6472;
+  --color-charcoal: #1b212b;
+  --color-ink: #0b1220;
+
+  /* Kplor blue family (≈30%) */
+  --color-kplor-50: #eef4fc;
+  --color-kplor-100: #dce9f8;
+  --color-kplor-200: #b9d3f1;
+  --color-kplor-400: #4f8ad6;
+  --color-kplor-500: #2a6bc4;
+  --color-kplor-600: #1a56a8;
+  --color-kplor-700: #0f4189;
+  --color-kplor-800: #072f68;
+  --color-kplor-900: #032859;
+  --color-kplor-950: #021a3b;
+
+  /* Accent (≈10%) — interaction states and the primary CTA on dark */
+  --color-accent: #f5b53d;
+  --color-accent-strong: #e69f1c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #032859;   /* Changed background color */
-    --foreground: #00FFFF; /* Changed foreground color */
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  /* Removed background and color from here; applied in layout.tsx */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--color-ink);
 }
+
+:focus-visible {
+  outline: 2px solid var(--color-kplor-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .kp-marquee {
+    animation: none !important;
+  }
+}
+
+/* Blueprint grid used as a quiet structural motif */
+.kp-grid {
+  background-image:
+    linear-gradient(to right, rgba(3, 40, 89, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(3, 40, 89, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.kp-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* FAQ disclosure */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .kp-plus { transform: rotate(45deg); }
 
 .luminated-bg {
   min-height: 100vh;
