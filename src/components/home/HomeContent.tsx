@@ -591,7 +591,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Kanishk",
-    role: "Engineering I",
+    role: "Engineer I",
     photo: "/Kanishk.PNG",
   },
   {
@@ -601,7 +601,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Sneha",
-    role: "Engineering I",
+    role: "Engineer I",
     photo: "/Sneha.jpeg",
   },
 ];

@@ -89,9 +89,9 @@ This section documents current temporary states, archived components, and exact 
   - **Mukil** — Co-Founder & CEO (LinkedIn)
   - **Sanjeeth** — Co-Founder & CTO (LinkedIn)
   - **Bharadhwaj** — Founder's Office Associate (LinkedIn, Photo: `/Bharadhwaj.jpeg`)
-  - **Kanishk** — Engineering I (Photo: `/Kanishk.PNG`)
+  - **Kanishk** — Engineer I (Photo: `/Kanishk.PNG`)
   - **Saniya** — Engineer I (Photo: `/Saniya.jpeg`)
-  - **Sneha** — Engineering I (Photo: `/Sneha.jpeg`)
+  - **Sneha** — Engineer I (Photo: `/Sneha.jpeg`)
 - **Layout**: 2-column card grid (`grid-cols-1 sm:grid-cols-2 max-w-3xl`) with 3 balanced rows and equalized card heights.
 
 ---
